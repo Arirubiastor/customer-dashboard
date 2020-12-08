@@ -1,8 +1,9 @@
 <template>
   <div>
-    <h1>Track &amp; trace</h1>
-    <h2>{{ bookingDetails.booking }}</h2>
-    <h2>{{ bookingDetails.shipper }}</h2>
+    <h2 class="text-center">Login page</h2>
+    <h5>Booking: {{ bookingDetails.booking }}</h5>
+    <h5>Shipper: {{ bookingDetails.shipper }}</h5>
+    <b-button tag="nuxt-link" to="/booking-details" variant="outline-primary">Booking Details</b-button>
   </div>
 </template>
 
