@@ -12,9 +12,12 @@
     "bootstrap": "^4.5.2",
     "bootstrap-vue": "^2.17.3",
     "core-js": "^3.6.5",
+    "leaflet": "^1.7.1",
     "node-sass": "^5.0.0",
     "nuxt": "^2.14.6",
-    "sass-loader": "^10.1.0"
+    "nuxt-leaflet": "0.0.22",
+    "sass-loader": "^10.1.0",
+    "vue2-leaflet": "^2.6.0"
   },
   "devDependencies": {}
 }
