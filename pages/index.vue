@@ -1,8 +1,7 @@
 <template>
   <div>
-    <h2 class="text-center">Login page</h2>
-    <h5>Booking: {{ bookingDetails.booking }}</h5>
-    <h5>Shipper: {{ bookingDetails.shipper }}</h5>
+    <h1 class="text-center">Login page</h1>
+    <StatusSummary :bookingData="bookingData" />
     <b-button tag="nuxt-link" to="/booking-details" variant="outline-primary">Booking Details</b-button>
   </div>
 </template>
@@ -13,12 +12,12 @@ import data from '~/static/bookingData.json'
 export default {
   data() {
     return {
-      bookingDetails: [],
+      bookingData: [],
     }
   },
   asyncData ({ params }) {
     console.log(data)
-    return {bookingDetails:data}
+    return {bookingData:data}
   }
 
   // async asyncData () {
