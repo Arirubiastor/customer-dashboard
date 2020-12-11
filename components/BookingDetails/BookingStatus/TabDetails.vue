@@ -37,7 +37,7 @@
       </b-list-group-item>
       <b-list-group-item>
         <b-row>
-          <b-col cols="md-4" class="font-weight-bold">OpsExecCor</b-col>
+          <b-col cols="md-4" class="font-weight-bold">Ops ExecCor</b-col>
           <b-col>{{ statusData.opsExecCor }}</b-col>
         </b-row>
       </b-list-group-item>
