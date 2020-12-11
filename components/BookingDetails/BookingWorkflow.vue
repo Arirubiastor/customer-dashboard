@@ -1,72 +1,115 @@
 <template>
   <div>
-    <h2 class="m-4">Booking Workflow</h2>
-    <b-container fluid class="mt-4">
-      <b-table hover :items="items" responsive="sm">
+    <b-container class="mt-4">
+      <!-- <b-container fluid class="mt-4"> -->
+      <h2 class="m-4">Booking Workflow</h2>
+      <div class="accordion" role="tablist">
+        <b-card no-body class="mb-1">
+          <b-card-header
+            header-tag="header"
+            class="p-1"
+            role="tab"
+            variant="primary"
+          >
+            <b-row class="d-flex align-items-center">
+              <b-col>{{ workflow.stageVerbose }}</b-col>
+              <b-col>Accomplished Date: {{ workflow.accomplishedDate }}</b-col>
+              <b-button v-b-toggle.accordion-1 class="p-0 mr-4">
+                <b-icon icon="plus-square" aria-label="Show Details"></b-icon>
+              </b-button>
+            </b-row>
+          </b-card-header>
+          <b-collapse
+            id="accordion-1"
+            visible
+            accordion="my-accordion"
+            role="tabpanel"
+          >
+            <b-card-body>
+              <b-table
+                hover
+                :items="items"
+                :fields="fields"
+                responsive="sm"
+              ></b-table>
+              <b-button v-b-toggle.collapse-1-inner size="sm">
+                <b-icon icon="plus-square" aria-label="Show Details"></b-icon>
+              </b-button>
+              <b-collapse id="collapse-1-inner" class="mt-2">
+                <b-card>
+                  <b-table
+                hover
+                :items="items"
+                :fields="fields"
+                responsive="sm"
+              ></b-table>
+                </b-card>
+              </b-collapse>
+            </b-card-body>
+          </b-collapse>
+        </b-card>
 
-      <template #thead-top="data">
-        <b-tr>
-          <!-- <b-th colspan="2"><span class="sr-only">Name and ID</span></b-th> -->
-          <b-th variant="secondary">Pre Carriage</b-th>
-          <b-th variant="primary" colspan="3">Accomplished Date</b-th>
-        </b-tr>
-      </template>
-
-      <template #cell(show_details)="row">
-        <b-button size="sm" @click="row.toggleDetails" class="mr-2">
-          {{ row.detailsShowing ? 'Hide' : 'Show'}} Details
-        </b-button>
-      </template>
-
-      <template #row-details="row">
-        <b-table :items2="items2" :fields2="fields2">
-
-        </b-table>
-        <!-- <b-card>
-          <b-row class="mb-2">
-            <b-col sm="3" class="text-sm-right"><b>Age:</b></b-col>
-            <b-col>{{ row.item.age }}</b-col>
-          </b-row>
-
-          <b-row class="mb-2">
-            <b-col sm="3" class="text-sm-right"><b>Is Active:</b></b-col>
-            <b-col>{{ row.item.isActive }}</b-col>
-          </b-row>
-
-          <b-button size="sm" @click="row.toggleDetails">Hide Details</b-button>
-        </b-card> -->
-      </template>
-    </b-table>
+        <b-card no-body class="mb-1">
+          <b-card-header
+            header-tag="header"
+            class="p-1"
+            role="tab"
+            variant="primary"
+          >
+            <b-row class="d-flex align-items-center">
+              <b-col> customs Export </b-col>
+              <b-col> Accomplished Date: 22-Oct-2020 </b-col>
+              <b-button v-b-toggle.accordion-2 class="p-0 mr-4">
+                <b-icon icon="plus-square" aria-label="Show Details"></b-icon>
+              </b-button>
+            </b-row>
+          </b-card-header>
+          <b-collapse
+            id="accordion-2"
+            visible
+            accordion="my-accordion"
+            role="tabpanel"
+          >
+            <b-card-body>
+              <b-table
+                hover
+                :items="tests"
+                responsive="sm"
+              ></b-table>
+            </b-card-body>
+          </b-collapse>
+        </b-card>
+      </div>
     </b-container>
   </div>
 </template>
 
 <script>
 export default {
+  props: {
+    workflow: {
+      type: Object,
+      required: true,
+    },
+  },
   data() {
-      return {
-        fields: ['pre_carriage', 'accomplished_date'],
-        items: [
-          { isActive: true, pre_carriage: 'Dickerson', accomplished_date: 'Macdonald' },
-          { isActive: false, pre_carriage: 'Larsen', accomplished_date: 'Shaw' },
-          {
-            isActive: false,
-            age: 89,
-            first_name: 'Geneva',
-            last_name: 'Wilson',
-            _showDetails: true
-          },
-          { isActive: true, age: 38, first_name: 'Jami', last_name: 'Carney' }
-        ],
-        fields2: ['status_verbose', 'alarm_date'],
-        items2: [
-          {isActive: true, status_verbose: 'Shipping advice', alarm_date: '---'}
-        ]
-      }
-    }
-}
+    return {
+      fields: ["status_verbose", "alarm_date"],
+      items: [
+        { status_verbose: "Shipping advice", alarm_date: "---" },
+        { status_verbose: "Shipping advice", alarm_date: "---" },
+      ],
+      tests: [{ status_verbose: "test", alarm_date: "---" }],
+
+      // preCarriage: this.bookingData.workflowStatus.preCarriage,
+      // customsExport: this.bookingData.workflowStatus.customsExport,
+      // mainTransit: this.bookingData.workflowStatus.mainTransit,
+      // customsImport: this.bookingData.workflowStatus.customsImport,
+      // onCarriage: this.bookingData.workflowStatus.onCarriage,
+    };
+  },
+};
 </script>
 
 <style>
-
 </style>

@@ -9,7 +9,7 @@
           <TabMap />
         </b-tab>
         <b-tab title="Details">
-          <TabDetails />
+          <TabDetails :statusData="bookingData" />
         </b-tab>
       </b-tabs>
     </b-container>
@@ -17,7 +17,19 @@
 </template>
 
 <script>
-export default {};
+export default {
+  props: {
+    bookingData: {
+      type: Object,
+      required: true,
+    }
+  },
+  data() {
+    return {
+      bookindData: this.bookingData
+    }
+  }
+};
 </script>
 
 <style>

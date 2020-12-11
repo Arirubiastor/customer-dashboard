@@ -21,7 +21,7 @@ export default {
     }
   },
   asyncData ({ params }) {
-    console.log(data)
+    // console.log(data)
     return {bookingData:data}
   }
 

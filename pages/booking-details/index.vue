@@ -3,7 +3,7 @@
     <h1 class="text-center">Booking Details</h1>
     <BookingHeader :bookingData="bookingData" />
     <BookingStatus :bookingData="bookingData" />
-    <BookingWorkflow :bookingData="bookingData" />
+    <BookingWorkflow :workflow="bookingData.workflow[0]" />
     <b-button tag="nuxt-link" to="/" variant="outline-primary">Back to login</b-button>
   </div>
 </template>
@@ -18,7 +18,7 @@ export default {
     }
   },
   asyncData ({ params }) {
-    console.log(data)
+    // console.log(data)
     return {bookingData:data}
   }
 }

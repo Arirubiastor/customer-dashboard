@@ -1,7 +1,5 @@
 <template>
   <div>
-    text
-
     <div style="height: 350px;">
     <div class="info" style="height: 15%">
       <span>Center: {{ center }}</span>

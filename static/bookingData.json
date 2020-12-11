@@ -1,120 +1,164 @@
 {
-    "booking": "CO2011IA16133",
-    "shipper": "BOTIL OIL TOOLS INDIA PRIVATE LIMITED",
-    "consignee": "SERTECPET DE COLOMBIA S.A.",
-    "type": "import",
-    "movement": "air",
-    "salesExecRes": "HECTOR CANIZALES",
-    "opsExecRes": "ESTEBAN OSPINA",
-    "salesExecCor": null,
-    "opsExecCor": null,
-    "descriptionGoodsBkg": "PARTES PARA SECTOR PETROLERO",
-    "incoterm": "EXW",
-    "latlng": "33.4569, -50.5647",
-    "latlng_isValid": true,
+    "booking": "EC2011ES15369",
+    "shipper": "SCHRYVER TRANSPORTES Y LOGISTICA SA DE C V",
+    "consignee": "CHUPALETAS S.A DE CV",
+    "type": null,
+    "movement": "Sea",
+    "salesExecRes": "MABAD",
+    "opsExecRes": "MSOTO",
+    "salesExecCor": "SCHRYVER",
+    "opsExecCor": "ASANTILLAN",
+    "descriptionGoodsBkg": "1X20 STD\nPVC PIGMENTOS",
+    "incoterm": "FOB",
+    "latlng": [
+        {
+            "lat": "33.4569",
+            "lng": "-50.5647"
+        }
+    ],
+    "latlng_isValid": "true",
     "tramoBkg": [
         {
-            "routeType": "sea",
-            "portLoading": "CHARLESTON, SC",
-            "portDischarge": "CARTAGENA, CO",
-            "vessel": "OLUF MAERSK",
-            "etd": "17-Oct-2020",
-            "eta": "22-Oct-2020",
-            "freeDaysOrigin": 5,
-            "freeDaysDestination": 15,
+            "routeType": "Sea",
+            "portLoading": "GUAYAQUIL, EC",
+            "portDischarge": "MANZANILLO, MX",
+            "vessel": "CMA CGM GANGES 0MH6MW1MA",
+            "etd": "2020-11-23",
+            "eta": "2020-11-13",
+            "freeDaysOrigin": 0,
+            "freeDaysDestination": 0,
             "bkgContenedor": [
                 {
                     "qty": 1,
-                    "type": "20 ST (FCL/FTL)",
-                    "marks": "MRKU9891121",
-                    "grossWeight": "12390.00",
-                    "volume": "0",
-                    "descriptionGoodsCont": "10 TOTE CAN  ACUMER 2100 (POLIMERO DISPERSANTE) ACUMER 1000 (MEZCLA CON POLIACRILATO DE SODIO) HS CODE 390690"
+                    "type": "20 ST",
+                    "marks": "OOLU0126249",
+                    "grossWeight": 2152.900,
+                    "volume": 30.000,
+                    "descriptionGoodsCont": "PVC PIG BLANCO BILAQUEADO\nEXPD: 001-003-000004294\nP.A.: 3920490000\nPESO NETO: 2023.36 KGS\nPESO BRUTO: 2152.90 KGS\nDAE: "
                 }
             ]
         }
     ],
-    "workflowStatus": {
-        "preCarriage": [
-            {
-                "statusVerbose": "Shipping advice",
-                "alarmDate": null,
-                "accomplishedDate": "22-Oct-2020",
-                "steps": []
-            },
-            {
-                "statusVerbose": "Pick-up confirmed",
-                "alarmDate": null,
-                "accomplishedDate": "22-Oct-2020",
-                "steps": [
-                    {
-                        "stepVerbose": "EUR-1",
-                        "alarmDate": null,
-                        "accomplishedDate": "22-Oct-2020"
-                    },
-                    {
-                        "stepVerbose": "Insurance",
-                        "alarmDate": "22-Oct-2020",
-                        "accomplishedDate": "23-Oct-2020"
-                    }
-                ]
-            }
-        ],
-        "customsExport": [
-            {
-                "statusVerbose": "Customs Clearance confirmed",
-                "alarmDate": null,
-                "accomplishedDate": "22-Oct-2020",
-                "steps": []
-            }
-        ],
-        "mainTransit": [
-            {
-                "statusVerbose": "Shipped on board",
-                "alarmDate": null,
-                "accomplishedDate": "22-Oct-2020",
-                "steps": []
-            },
-            {
-                "statusVerbose": "Shipping confirmation",
-                "alarmDate": null,
-                "accomplishedDate": "22-Oct-2020",
-                "steps": []
-            },
-            {
-                "statusVerbose": "Arrival notice",
-                "alarmDate": null,
-                "accomplishedDate": "22-Oct-2020",
-                "steps": []
-            },
-            {
-                "statusVerbose": "Arrival confirmation",
-                "alarmDate": null,
-                "accomplishedDate": "22-Oct-2020",
-                "steps": []
-            }
-        ],
-        "customsImport": [
-            {
-                "statusVerbose": "Customs Clearance confirmed",
-                "alarmDate": null,
-                "accomplishedDate": "22-Oct-2020",
-                "steps": []
-            }
-        ],
-        "onCarriage": [
-            {
-                "statusVerbose": "Customs pick up",
-                "alarmDate": null,
-                "accomplishedDate": "22-Oct-2020",
-                "steps": []
-            },
-            {
-                "statusVerbose": "Delivery confirmed",
-                "alarmDate": null,
-                "accomplishedDate": "22-Oct-2020",
-                "steps": []
-            }
-        ]
-    }
+    "workflow": [
+        {
+            "stageVerbose": "PRE-CARRIAGE",
+            "alarmDate": "",
+            "accomplishedDate": "2020-11-19 11:32",
+            "status": "",
+            "steps": [
+                {
+                    "statusVerbose": "QUOTATION",
+                    "alarmDate": "",
+                    "accomplishedDate": "2020-11-19 11:32"
+                },
+                {
+                    "statusVerbose": "CREDIT CONFIRMATION",
+                    "alarmDate": "",
+                    "accomplishedDate": "2020-11-17 0:23"
+                },
+                {
+                    "statusVerbose": "SECURITY DOCS",
+                    "alarmDate": "",
+                    "accomplishedDate": "2020-11-19 12:25",
+                    "steps": [
+                        {
+                            "stepVerbose": "MASTER FINAL",
+                            "alarmDate": "",
+                            "accomplishedDate": "2020-11-19 11:32"
+                        },
+                        {
+                            "stepVerbose": "HOUSE FINAL",
+                            "alarmDate": "",
+                            "accomplishedDate": "2020-11-19 11:32"
+                        },
+                        {
+                            "stepVerbose": "DEX-DAS-REXP",
+                            "alarmDate": "",
+                            "accomplishedDate": "2020-11-19 11:32"
+                        }
+                    ]
+                },
+                {
+                    "statusVerbose": "BOOKING REQUEST TO CARRIER",
+                    "alarmDate": "",
+                    "accomplishedDate": "2020-11-17 0:24"
+                },
+                {
+                    "statusVerbose": "BOOKING CONFIRMATION TO CUSTOMER",
+                    "alarmDate": "",
+                    "accomplishedDate": "2020-11-17 0:24"
+                }
+            ]
+        },
+        {
+            "stageVerbose": "CUSTOMS IMPORT",
+            "alarmDate": "2020-11-27 00:00",
+            "accomplishedDate": "2020-12-02 11:49",
+            "status": "",
+            "steps": [
+                {
+                    "statusVerbose": "CUSTOMS INSTRUCTIONS",
+                    "alarmDate": "2020-11-20 00:00",
+                    "accomplishedDate": "2020-11-23 22:51"
+                },
+                {
+                    "statusVerbose": "CUSTOMS CLEARANCE CONFIRMATION",
+                    "alarmDate": "",
+                    "accomplishedDate": ""
+                }
+            ]
+        },
+        {
+            "stageVerbose": "ON-CARRIAGE",
+            "alarmDate": "",
+            "accomplishedDate": "",
+            "status": "",
+            "steps": [
+                {
+                    "statusVerbose": "CUSTOMS PICK-UP",
+                    "alarmDate": "",
+                    "accomplishedDate": "",
+                    "steps": [
+                        {
+                            "stepVerbose": "DELIVERY INSTRUCTIONS",
+                            "alarmDate": "",
+                            "accomplishedDate": ""
+                        },
+                        {
+                            "stepVerbose": "TRANSPORT DOCUMENT",
+                            "alarmDate": "",
+                            "accomplishedDate": ""
+                        }
+                    ]
+                },
+                {
+                    "statusVerbose": "DELIVERY CONFIRMED",
+                    "alarmDate": "",
+                    "accomplishedDate": "",
+                    "steps": [
+                        {
+                            "stepVerbose": "POD",
+                            "alarmDate": "",
+                            "accomplishedDate": ""
+                        },
+                        {
+                            "stepVerbose": "DEMURRAGES",
+                            "alarmDate": "2020-12-08 00: 00",
+                            "accomplishedDate": "2020-12-09 12: 31"
+                        },
+                        {
+                            "stepVerbose": "COSTS-CHEKING",
+                            "alarmDate": "",
+                            "accomplishedDate": ""
+                        },
+                        {
+                            "stepVerbose": "INVOICING",
+                            "alarmDate": "",
+                            "accomplishedDate": "2020-12-04 13: 5"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
 }
