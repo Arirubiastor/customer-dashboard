@@ -9,7 +9,8 @@
           <TabMap />
         </b-tab>
         <b-tab title="Details">
-          <TabDetails :statusData="bookingData" />
+          <!-- <TabDetails :statusData="bookingData" /> -->
+          <TabDetails :statusData="bookingData" :tramoBkg="bookingData.tramoBkg" />
         </b-tab>
       </b-tabs>
     </b-container>
@@ -20,7 +21,7 @@
 export default {
   props: {
     bookingData: {
-      type: Object,
+      type: Array,
       required: true,
     }
   },
