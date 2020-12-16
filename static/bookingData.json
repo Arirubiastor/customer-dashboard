@@ -1,15 +1,15 @@
 {
-    "booking": "EC2011ES15369",
+    "booking": "EC2008IA11390",
     "shipper": "SCHRYVER TRANSPORTES Y LOGISTICA SA DE C V",
-    "consignee": "CHUPALETAS S.A DE CV",
-    "type": null,
-    "movement": "Sea",
-    "salesExecRes": "MABAD",
-    "opsExecRes": "MSOTO",
-    "salesExecCor": "SCHRYVER",
-    "opsExecCor": "ASANTILLAN",
-    "descriptionGoodsBkg": "1X20 STD\nPVC PIGMENTOS",
-    "incoterm": "FOB",
+    "consignee": "HOLCIM ECUADOR SA",
+    "type": "Import",
+    "movement": "Air",
+    "salesExecRes": "HDASSAU",
+    "opsExecRes": "VVALVERDE",
+    "salesExecCor": "LEONSANCHEZ",
+    "opsExecCor": "FMARQUEZ",
+    "descriptionGoodsBkg": "",
+    "incoterm": "EXW",
     "latlng": [
         {
             "lat": "33.4569",
@@ -19,22 +19,42 @@
     "latlng_isValid": "true",
     "tramoBkg": [
         {
-            "routeType": "Sea",
-            "portLoading": "GUAYAQUIL, EC",
-            "portDischarge": "MANZANILLO, MX",
-            "vessel": "CMA CGM GANGES 0MH6MW1MA",
-            "etd": "2020-11-23",
-            "eta": "2020-11-13",
-            "freeDaysOrigin": 0,
+            "routeType": "Air",
+            "portLoading": "INTERNACIONAL BENITO JUAREZ",
+            "portDischarge": "MARISCAL SUCRE",
+            "vessel": null,
+            "etd": "2020-09-21",
+            "eta": "2020-09-20",
+            "freeDaysOrigin": null,
             "freeDaysDestination": 0,
             "bkgContenedor": [
                 {
                     "qty": 1,
-                    "type": "20 ST",
-                    "marks": "OOLU0126249",
-                    "grossWeight": 2152.900,
-                    "volume": 30.000,
-                    "descriptionGoodsCont": "PVC PIG BLANCO BILAQUEADO\nEXPD: 001-003-000004294\nP.A.: 3920490000\nPESO NETO: 2023.36 KGS\nPESO BRUTO: 2152.90 KGS\nDAE: "
+                    "type": "PACKAGE",
+                    "marks": "VYSISA",
+                    "grossWeight": 270,
+                    "volume": 270,
+                    "descriptionGoodsCont": "TOOLS\n1. Envío herramientas definitivas CENACA"
+                }
+            ]
+        },
+        {
+            "routeType": "Air",
+            "portLoading": "INTERNACIONAL BENITO JUAREZ",
+            "portDischarge": "MARISCAL SUCRE",
+            "vessel": null,
+            "etd": "2020-09-20",
+            "eta": "2020-09-20",
+            "freeDaysOrigin": null,
+            "freeDaysDestination": 0,
+            "bkgContenedor": [
+                {
+                    "qty": 3,
+                    "type": "PACKAGE",
+                    "marks": "VYSISA",
+                    "grossWeight": 5436,
+                    "volume": 5436,
+                    "descriptionGoodsCont": "TOOLS\n2. Envío herramientas temporales CENACA"
                 }
             ]
         }
@@ -43,120 +63,532 @@
         {
             "stageVerbose": "PRE-CARRIAGE",
             "alarmDate": "",
-            "accomplishedDate": "2020-11-19 11:32",
+            "accomplishedDate": "",
             "status": "",
             "steps": [
                 {
-                    "statusVerbose": "QUOTATION",
+                    "statusVerbose": "Email Approval",
                     "alarmDate": "",
-                    "accomplishedDate": "2020-11-19 11:32"
-                },
-                {
-                    "statusVerbose": "CREDIT CONFIRMATION",
-                    "alarmDate": "",
-                    "accomplishedDate": "2020-11-17 0:23"
-                },
-                {
-                    "statusVerbose": "SECURITY DOCS",
-                    "alarmDate": "",
-                    "accomplishedDate": "2020-11-19 12:25",
+                    "accomplishedDate": "2020-08-31 16:33",
                     "steps": [
                         {
-                            "stepVerbose": "MASTER FINAL",
+                            "stepVerbose": "PO / Commercial Docs. Confirmation",
                             "alarmDate": "",
-                            "accomplishedDate": "2020-11-19 11:32"
-                        },
-                        {
-                            "stepVerbose": "HOUSE FINAL",
-                            "alarmDate": "",
-                            "accomplishedDate": "2020-11-19 11:32"
-                        },
-                        {
-                            "stepVerbose": "DEX-DAS-REXP",
-                            "alarmDate": "",
-                            "accomplishedDate": "2020-11-19 11:32"
+                            "accomplishedDate": "2020-09-11 11:45"
                         }
                     ]
                 },
                 {
-                    "statusVerbose": "BOOKING REQUEST TO CARRIER",
+                    "statusVerbose": "SH. ADVICE",
                     "alarmDate": "",
-                    "accomplishedDate": "2020-11-17 0:24"
+                    "accomplishedDate": "2020-09-15 10:54",
+                    "steps": [
+                        {
+                            "stepVerbose": "COSTS & QUOTE",
+                            "alarmDate": "",
+                            "accomplishedDate": "2020-09-09 11:55"
+                        },
+                        {
+                            "stepVerbose": "AIRLINE BOOKING",
+                            "alarmDate": "2020-09-15 00:00",
+                            "accomplishedDate": "2020-09-15 10:54"
+                        }
+                    ]
                 },
                 {
-                    "statusVerbose": "BOOKING CONFIRMATION TO CUSTOMER",
+                    "statusVerbose": "SHIPPING ADVICE",
                     "alarmDate": "",
-                    "accomplishedDate": "2020-11-17 0:24"
+                    "accomplishedDate": "",
+                    "steps": [
+                        {
+                            "stepVerbose": "Cost & Quote",
+                            "alarmDate": "",
+                            "accomplishedDate": "2020-09-15 17:32"
+                        },
+                        {
+                            "stepVerbose": "Shipping Instructions",
+                            "alarmDate": "",
+                            "accomplishedDate": "2020-08-31 16:40"
+                        }
+                    ]
+                },
+                {
+                    "statusVerbose": "PICK-UP CONFIRMED",
+                    "alarmDate": "2020-09-16 00:00",
+                    "accomplishedDate": "2020-09-17 11:27",
+                    "steps": [
+                        {
+                            "stepVerbose": "CI / PL / COO",
+                            "alarmDate": "2020-09-11 00:00",
+                            "accomplishedDate": "2020-09-11 11:4"
+                        },
+                        {
+                            "stepVerbose": "AWB ISSUANCE",
+                            "alarmDate": "2020-09-15 00:00",
+                            "accomplishedDate": "2020-09-15 11:7"
+                        },
+                        {
+                            "stepVerbose": "PICK UP INST",
+                            "alarmDate": "2020-09-15 00:00",
+                            "accomplishedDate": "2020-09-15 12:29"
+                        }
+                    ]
+                },
+                {
+                    "statusVerbose": "PICK UP",
+                    "alarmDate": "2020-09-16 00:00",
+                    "accomplishedDate": "2020-09-16 11:36",
+                    "steps": [
+                        {
+                            "stepVerbose": "P/U Date",
+                            "alarmDate": "2020-09-16 00:00",
+                            "accomplishedDate": "2020-09-16 11:36"
+                        },
+                        {
+                            "stepVerbose": "Warehouse Receipt",
+                            "alarmDate": "",
+                            "accomplishedDate": "2020-09-18 20:31"
+                        }
+                    ]
                 }
             ]
         },
         {
-            "stageVerbose": "CUSTOMS IMPORT",
-            "alarmDate": "2020-11-27 00:00",
-            "accomplishedDate": "2020-12-02 11:49",
-            "status": "",
-            "steps": [
-                {
-                    "statusVerbose": "CUSTOMS INSTRUCTIONS",
-                    "alarmDate": "2020-11-20 00:00",
-                    "accomplishedDate": "2020-11-23 22:51"
-                },
-                {
-                    "statusVerbose": "CUSTOMS CLEARANCE CONFIRMATION",
-                    "alarmDate": "",
-                    "accomplishedDate": ""
-                }
-            ]
-        },
-        {
-            "stageVerbose": "ON-CARRIAGE",
+            "stageVerbose": "MAIN TRANSIT",
             "alarmDate": "",
             "accomplishedDate": "",
             "status": "",
             "steps": [
                 {
-                    "statusVerbose": "CUSTOMS PICK-UP",
+                    "statusVerbose": "Booking Confirmation to Cnee: ETD/ETA",
                     "alarmDate": "",
-                    "accomplishedDate": "",
+                    "accomplishedDate": "2020-09-15 12:31",
+                    "steps": null
+                },
+                {
+                    "statusVerbose": "SHIPPED ON BOARD",
+                    "alarmDate": "2020-09-17 00:00",
+                    "accomplishedDate": "2020-09-17 11:27",
                     "steps": [
                         {
-                            "stepVerbose": "DELIVERY INSTRUCTIONS",
-                            "alarmDate": "",
-                            "accomplishedDate": ""
+                            "stepVerbose": "CUSTOMS EXPORT OK",
+                            "alarmDate": "2020-09-21 00:00",
+                            "accomplishedDate": "2020-09-19 12:5"
+                        }
+                    ]
+                },
+                {
+                    "statusVerbose": "** CONFIRMATION ON BOARD **",
+                    "alarmDate": "2020-09-20 00:00",
+                    "accomplishedDate": "2020-09-21 7:22",
+                    "steps": [
+                        {
+                            "stepVerbose": "Shipping Confirmation to Cnee",
+                            "alarmDate": "2020-09-20 00:00",
+                            "accomplishedDate": "2020-09-21 7:22"
                         },
                         {
-                            "stepVerbose": "TRANSPORT DOCUMENT",
+                            "stepVerbose": "MAWB draft to Check & Approval",
+                            "alarmDate": "",
+                            "accomplishedDate": "2020-09-15 12:34"
+                        },
+                        {
+                            "stepVerbose": "HAWB draft to Check & Approval",
+                            "alarmDate": "",
+                            "accomplishedDate": "2020-09-15 12:29"
+                        },
+                        {
+                            "stepVerbose": "HAWB to Cnee / Approval",
+                            "alarmDate": "",
+                            "accomplishedDate": "2020-09-15 12:34"
+                        },
+                        {
+                            "stepVerbose": "Prealert for Transmission",
+                            "alarmDate": "",
+                            "accomplishedDate": "2020-09-15 12:51"
+                        },
+                        {
+                            "stepVerbose": "STATUS to CNEE",
                             "alarmDate": "",
                             "accomplishedDate": ""
                         }
                     ]
                 },
                 {
-                    "statusVerbose": "DELIVERY CONFIRMED",
+                    "statusVerbose": "SHIPPING CONFIRMATION",
+                    "alarmDate": "",
+                    "accomplishedDate": "2020-09-19 12:05",
+                    "steps": [
+                        {
+                            "stepVerbose": "AWB INFO & COST REGISTRY",
+                            "alarmDate": "",
+                            "accomplishedDate": "2020-09-19 12:8"
+                        },
+                        {
+                            "stepVerbose": "PREALERT TO AGENT",
+                            "alarmDate": "",
+                            "accomplishedDate": "2020-09-19 12:05"
+                        },
+                        {
+                            "stepVerbose": "SHIPPING CONFIRMATION TO CLIENT",
+                            "alarmDate": "",
+                            "accomplishedDate": "2020-09-19 12:5"
+                        }
+                    ]
+                },
+                {
+                    "statusVerbose": "ARRIVAL NOTICE",
+                    "alarmDate": "",
+                    "accomplishedDate": "2020-09-21 7:23",
+                    "steps": [
+                        {
+                            "stepVerbose": "Arrival Confirmation",
+                            "alarmDate": "",
+                            "accomplishedDate": "2020-09-21 7:27"
+                        },
+                        {
+                            "stepVerbose": "HAWB Certification",
+                            "alarmDate": "",
+                            "accomplishedDate": "2020-10-02 21:10"
+                        },
+                        {
+                            "stepVerbose": "Customer Billing",
+                            "alarmDate": "",
+                            "accomplishedDate": "2020-09-21 17:7"
+                        }
+                    ]
+                },
+                {
+                    "statusVerbose": "ON ROUTE FOLLOW UP",
+                    "alarmDate": "",
+                    "accomplishedDate": "2020-09-15 11:11",
+                    "steps": null
+                },
+                {
+                    "statusVerbose": "IMPORT COSTS",
                     "alarmDate": "",
                     "accomplishedDate": "",
                     "steps": [
                         {
-                            "stepVerbose": "POD",
+                            "stepVerbose": "Invoice Agent",
                             "alarmDate": "",
-                            "accomplishedDate": ""
+                            "accomplishedDate": "2020-09-21 17:7"
                         },
                         {
-                            "stepVerbose": "DEMURRAGES",
-                            "alarmDate": "2020-12-08 00: 00",
-                            "accomplishedDate": "2020-12-09 12: 31"
-                        },
-                        {
-                            "stepVerbose": "COSTS-CHEKING",
+                            "stepVerbose": "Local Charges",
                             "alarmDate": "",
-                            "accomplishedDate": ""
-                        },
-                        {
-                            "stepVerbose": "INVOICING",
-                            "alarmDate": "",
-                            "accomplishedDate": "2020-12-04 13: 5"
+                            "accomplishedDate": "2020-09-19 14:56"
                         }
                     ]
+                },
+                {
+                    "statusVerbose": "ARRIVAL CONFIRMATION",
+                    "alarmDate": "2020-09-21 00:00",
+                    "accomplishedDate": "2020-09-21 09:00",
+                    "steps": null
+                },
+                {
+                    "statusVerbose": "INVOICING",
+                    "alarmDate": "2020-09-23 00:00",
+                    "accomplishedDate": "2020-09-21 11:57",
+                    "steps": [
+                        {
+                            "stepVerbose": "ENVIAR FACTURA",
+                            "alarmDate": "2020-09-22 00:00",
+                            "accomplishedDate": "2020-09-21 12:28"
+                        }
+                    ]
+                },
+                {
+                    "statusVerbose": "COSTS CHECKING",
+                    "alarmDate": "2020-10-12 00:00",
+                    "accomplishedDate": "2020-10-12 10:34",
+                    "steps": null
+                },
+                {
+                    "statusVerbose": "POD",
+                    "alarmDate": "",
+                    "accomplishedDate": "2020-09-19 12:6",
+                    "steps": null
+                }
+            ]
+        },
+        {
+            "stageVerbose": "PRE-CARRIAGE",
+            "alarmDate": "",
+            "accomplishedDate": "2020-09-09 11:56",
+            "status": "",
+            "steps": [
+                {
+                    "statusVerbose": "Email Approval",
+                    "alarmDate": "",
+                    "accomplishedDate": "2020-08-31 16:33",
+                    "steps": [
+                        {
+                            "stepVerbose": "PO / Commercial Docs. Confirmation",
+                            "alarmDate": "",
+                            "accomplishedDate": "2020-09-11 11:45"
+                        }
+                    ]
+                },
+                {
+                    "statusVerbose": "SH. ADVICE",
+                    "alarmDate": "",
+                    "accomplishedDate": "2020-09-15 10:54",
+                    "steps": [
+                        {
+                            "stepVerbose": "COSTS & QUOTE",
+                            "alarmDate": "",
+                            "accomplishedDate": "2020-09-09 11:55"
+                        },
+                        {
+                            "stepVerbose": "AIRLINE BOOKING",
+                            "alarmDate": "2020-09-15 00:00",
+                            "accomplishedDate": "2020-09-15 10:54"
+                        }
+                    ]
+                },
+                {
+                    "statusVerbose": "SHIPPING ADVICE",
+                    "alarmDate": "",
+                    "accomplishedDate": "",
+                    "steps": [
+                        {
+                            "stepVerbose": "Cost & Quote",
+                            "alarmDate": "",
+                            "accomplishedDate": "2020-09-15 17:32"
+                        },
+                        {
+                            "stepVerbose": "Shipping Instructions",
+                            "alarmDate": "",
+                            "accomplishedDate": "2020-08-31 16:40"
+                        }
+                    ]
+                },
+                {
+                    "statusVerbose": "PICK-UP CONFIRMED",
+                    "alarmDate": "2020-09-16 00:00",
+                    "accomplishedDate": "2020-09-17 11:27",
+                    "steps": [
+                        {
+                            "stepVerbose": "CI / PL / COO",
+                            "alarmDate": "2020-09-11 00:00",
+                            "accomplishedDate": "2020-09-11 11:4"
+                        },
+                        {
+                            "stepVerbose": "AWB ISSUANCE",
+                            "alarmDate": "2020-09-15 00:00",
+                            "accomplishedDate": "2020-09-15 11:7"
+                        },
+                        {
+                            "stepVerbose": "PICK UP INST",
+                            "alarmDate": "2020-09-15 00:00",
+                            "accomplishedDate": "2020-09-15 12:29"
+                        }
+                    ]
+                },
+                {
+                    "statusVerbose": "PICK UP",
+                    "alarmDate": "2020-09-16 00:00",
+                    "accomplishedDate": "2020-09-16 11:36",
+                    "steps": [
+                        {
+                            "stepVerbose": "P/U Date",
+                            "alarmDate": "2020-09-16 00:00",
+                            "accomplishedDate": "2020-09-16 11:36"
+                        },
+                        {
+                            "stepVerbose": "Warehouse Receipt",
+                            "alarmDate": "",
+                            "accomplishedDate": "2020-09-18 20:31"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "stageVerbose": "CUSTOMS EXPORT",
+            "alarmDate": "",
+            "accomplishedDate": "2020-09-09 11:56",
+            "status": "",
+            "steps": [
+                {
+                    "statusVerbose": "CUSTOMS INSTRUCTIONS",
+                    "alarmDate": "",
+                    "accomplishedDate": "2020-09-09 11:56",
+                    "steps": null
+                },
+                {
+                    "statusVerbose": "CUSTOMS CLEARANCE CONFIRMATION",
+                    "alarmDate": "",
+                    "accomplishedDate": "2020-09-09 11:56",
+                    "steps": [
+                        {
+                            "stepVerbose": "PROFORMA PEDIMENTO OK",
+                            "alarmDate": "2020-09-17 00:00",
+                            "accomplishedDate": "2020-09-17 11:29"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "stageVerbose": "MAIN TRANSIT",
+            "alarmDate": "",
+            "accomplishedDate": "",
+            "status": "",
+            "steps": [
+                {
+                    "statusVerbose": "Booking Confirmation to Cnee: ETD/ETA",
+                    "alarmDate": "",
+                    "accomplishedDate": "2020-09-15 12:31",
+                    "steps": null
+                },
+                {
+                    "statusVerbose": "SHIPPED ON BOARD",
+                    "alarmDate": "2020-09-17 00:00",
+                    "accomplishedDate": "2020-09-17 11:27",
+                    "steps": [
+                        {
+                            "stepVerbose": "CUSTOMS EXPORT OK",
+                            "alarmDate": "2020-09-21 00:00",
+                            "accomplishedDate": "2020-09-19 12:5"
+                        }
+                    ]
+                },
+                {
+                    "statusVerbose": "** CONFIRMATION ON BOARD **",
+                    "alarmDate": "2020-09-20 00:00",
+                    "accomplishedDate": "2020-09-21 7:22",
+                    "steps": [
+                        {
+                            "stepVerbose": "Shipping Confirmation to Cnee",
+                            "alarmDate": "2020-09-20 00:00",
+                            "accomplishedDate": "2020-09-21 7:22"
+                        },
+                        {
+                            "stepVerbose": "MAWB draft to Check & Approval",
+                            "alarmDate": "",
+                            "accomplishedDate": "2020-09-15 12:34"
+                        },
+                        {
+                            "stepVerbose": "HAWB draft to Check & Approval",
+                            "alarmDate": "",
+                            "accomplishedDate": "2020-09-15 12:29"
+                        },
+                        {
+                            "stepVerbose": "HAWB to Cnee / Approval",
+                            "alarmDate": "",
+                            "accomplishedDate": "2020-09-15 12:34"
+                        },
+                        {
+                            "stepVerbose": "Prealert for Transmission",
+                            "alarmDate": "",
+                            "accomplishedDate": "2020-09-15 12:51"
+                        },
+                        {
+                            "stepVerbose": "STATUS to CNEE",
+                            "alarmDate": "",
+                            "accomplishedDate": ""
+                        }
+                    ]
+                },
+                {
+                    "statusVerbose": "SHIPPING CONFIRMATION",
+                    "alarmDate": "",
+                    "accomplishedDate": "2020-09-19 12:05",
+                    "steps": [
+                        {
+                            "stepVerbose": "AWB INFO & COST REGISTRY",
+                            "alarmDate": "",
+                            "accomplishedDate": "2020-09-19 12:8"
+                        },
+                        {
+                            "stepVerbose": "PREALERT TO AGENT",
+                            "alarmDate": "",
+                            "accomplishedDate": "2020-09-19 12:05"
+                        },
+                        {
+                            "stepVerbose": "SHIPPING CONFIRMATION TO CLIENT",
+                            "alarmDate": "",
+                            "accomplishedDate": "2020-09-19 12:5"
+                        }
+                    ]
+                },
+                {
+                    "statusVerbose": "ARRIVAL NOTICE",
+                    "alarmDate": "",
+                    "accomplishedDate": "2020-09-21 7:23",
+                    "steps": [
+                        {
+                            "stepVerbose": "Arrival Confirmation",
+                            "alarmDate": "",
+                            "accomplishedDate": "2020-09-21 7:27"
+                        },
+                        {
+                            "stepVerbose": "HAWB Certification",
+                            "alarmDate": "",
+                            "accomplishedDate": "2020-10-02 21:10"
+                        },
+                        {
+                            "stepVerbose": "Customer Billing",
+                            "alarmDate": "",
+                            "accomplishedDate": "2020-09-21 17:7"
+                        }
+                    ]
+                },
+                {
+                    "statusVerbose": "ON ROUTE FOLLOW UP",
+                    "alarmDate": "",
+                    "accomplishedDate": "2020-09-15 11:11",
+                    "steps": null
+                },
+                {
+                    "statusVerbose": "IMPORT COSTS",
+                    "alarmDate": "",
+                    "accomplishedDate": "",
+                    "steps": [
+                        {
+                            "stepVerbose": "Invoice Agent",
+                            "alarmDate": "",
+                            "accomplishedDate": "2020-09-21 17:7"
+                        },
+                        {
+                            "stepVerbose": "Local Charges",
+                            "alarmDate": "",
+                            "accomplishedDate": "2020-09-19 14:56"
+                        }
+                    ]
+                },
+                {
+                    "statusVerbose": "ARRIVAL CONFIRMATION",
+                    "alarmDate": "2020-09-21 00:00",
+                    "accomplishedDate": "2020-09-21 09:00",
+                    "steps": null
+                },
+                {
+                    "statusVerbose": "INVOICING",
+                    "alarmDate": "2020-09-23 00:00",
+                    "accomplishedDate": "2020-09-21 11:57",
+                    "steps": [
+                        {
+                            "stepVerbose": "ENVIAR FACTURA",
+                            "alarmDate": "2020-09-22 00:00",
+                            "accomplishedDate": "2020-09-21 12:28"
+                        }
+                    ]
+                },
+                {
+                    "statusVerbose": "COSTS CHECKING",
+                    "alarmDate": "2020-10-12 00:00",
+                    "accomplishedDate": "2020-10-12 10:34",
+                    "steps": null
+                },
+                {
+                    "statusVerbose": "POD",
+                    "alarmDate": "",
+                    "accomplishedDate": "2020-09-19 12:6",
+                    "steps": null
                 }
             ]
         }
