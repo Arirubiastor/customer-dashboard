@@ -17,9 +17,10 @@
                 <b-col cols="12" class="text-left">{{
                   itemWorkflow.stageVerbose
                 }}</b-col>
-                <b-col class="text-left">
+                <b-col class="text-left" v-if="itemWorkflow.accomplishedDate != null && itemWorkflow.accomplishedDate != ''">
                   Accomplished Date:<br />{{ itemWorkflow.accomplishedDate }}
                 </b-col>
+                <b-col class="text-left" v-else>Accomplished Date: {{ emptyString }}</b-col>
               </b-row>
             </b-button>
           </b-card-header>
@@ -138,7 +139,8 @@
                           </b-button>
                           {{ itemStatusVerbose.statusVerbose }}</b-col
                         >
-                        <b-col>{{ itemStatusVerbose.accomplishedDate }}</b-col>
+                        <b-col v-if="itemStatusVerbose.accomplishedDate != null && itemStatusVerbose.accomplishedDate != ''">{{ itemStatusVerbose.accomplishedDate }}</b-col>
+                        <b-col v-else>{{ emptyString }}</b-col>
                       </b-row>
                       <b-row>
                         <b-col class="p-0">
@@ -147,12 +149,14 @@
                               <b-list-group>
                                 <b-list-group-item v-for="(itemStepVerbose, index) in itemStatusVerbose.steps" :key="index">
                                   <b-row>
-                                    <b-col>
+                                    <b-col v-if="itemStepVerbose.stepVerbose != null && itemStepVerbose.stepVerbose != ''">
                                       {{ itemStepVerbose.stepVerbose }}
                                     </b-col>
-                                    <b-col>
+                                    <b-col v-else>{{ emptyString }}</b-col>
+                                    <b-col v-if="itemStepVerbose.alarmDate != null && itemStepVerbose.alarmDate != ''">
                                       {{ itemStepVerbose.alarmDate }}
                                     </b-col>
+                                    <b-col v-else>{{ emptyString }}</b-col>
                                   </b-row>
                                 </b-list-group-item>
                               </b-list-group>
@@ -223,7 +227,6 @@
             </b-card-body>
           </b-collapse>
         </b-card>
-        <!-- if statusVerbose has steps, show the plus/details button OR if statusVerbose.steps = Null, don't show details button -->
       </div>
     </b-container>
   </div>
@@ -247,6 +250,7 @@ export default {
       fieldsTest: ["stepVerbose", "alarmDate"],
       visibleStageSteps: false,
       visibleStepVerbose: false,
+      emptyString: '----'
       // '0': false,
       // '1': false,
       // visibleBkgContenedor: false,
