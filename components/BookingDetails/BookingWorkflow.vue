@@ -29,10 +29,11 @@
             accordion="my-accordion"
             role="tabpanel"
           >
-            <b-card-body>
+            <b-card-body class="p-0">
               <b-card-text>
-                {{ itemWorkflow.steps }}
+                <!-- {{ itemWorkflow.steps }}   -->
                 <div>
+
                   <!-- FUNCIONA PARCIALMENTE -->
                   <!-- <b-table
                     hover
@@ -89,33 +90,84 @@
                   <!-- FUNCIONA PARCIALMENTE -->
 
                   <!-- TEST -->
-                  <table class="table table-bordered">
-                    <!-- <thead>
-                      <tr>
-                        <th scope="col">status verbose</th>
-                        <th scope="col">alarm date</th>
-                        <th scope="col">details</th>
-                      </tr>
-                    </thead>
-                    <t-body>
-                      <tr v-for="(itemStatusVerbose, index) in itemWorkflow.steps" :key="index">
-                        <th scope="row">{{ itemStatusVerbose.statusVerbose }}</th>
-                        <td>{{ itemStatusVerbose.alarmDate }}</td>
-                        <td>
-                          <b-button>
-                            button toggle {{ itemStatusVerbose.steps }}
-                          </b-button>
-                        </td>
-                      </tr>
-                    </t-body> -->
 
-                    <table class="table">
+                  <b-list-group>
+                    <b-list-group-item>
+                      <b-row>
+                        <b-col>Status Verbose</b-col>
+                        <b-col>Alarm Date</b-col>
+                      </b-row>
+                    </b-list-group-item>
+                  </b-list-group>
+
+                  <b-list-group>
+                    <b-list-group-item
+                      v-for="(itemStatusVerbose, index) in itemWorkflow.steps"
+                      :key="index"
+                    >
+                      <b-row>
+                        <b-col class="p-0">
+                          <b-button v-b-toggle="'collapse-' + index" @click="itemStatusVerbose.index = !itemStatusVerbose.index"
+                            v-if="itemStatusVerbose.steps != null">
+                            <!-- <b-icon
+                              v-if="!itemStatusVerbose.index"
+                              icon="plus-square"
+                              aria-label="Show Details"
+                              class="mr-0"
+                            ></b-icon>
+                            <b-icon
+                              v-else
+                              icon="dash-square"
+                              aria-label="Hide Details"
+                              class="mr-0"
+                            ></b-icon> -->
+                            <b-icon
+                              icon="chevron-down"
+                              aria-label="Show Details"
+                              class="mr-0"
+                              name="icon"
+                            ></b-icon>
+                          </b-button>
+                          <b-button v-b-toggle="'collapse-' + index" @click="itemStatusVerbose.index = !itemStatusVerbose.index" v-else disabled>
+                            <b-icon
+                              icon="chevron-down"
+                              aria-label="Show Details"
+                              class="mr-0"
+                              name="icon"
+                            ></b-icon>
+                          </b-button>
+                          {{ itemStatusVerbose.statusVerbose }}</b-col
+                        >
+                        <b-col>{{ itemStatusVerbose.accomplishedDate }}</b-col>
+                      </b-row>
+                      <b-row>
+                        <b-col class="p-0">
+                          <b-collapse :id="'collapse-' + index">
+                            <b-card no-body>
+                              <b-list-group>
+                                <b-list-group-item v-for="(itemStepVerbose, index) in itemStatusVerbose.steps" :key="index">
+                                  <b-row>
+                                    <b-col>
+                                      {{ itemStepVerbose.stepVerbose }}
+                                    </b-col>
+                                    <b-col>
+                                      {{ itemStepVerbose.alarmDate }}
+                                    </b-col>
+                                  </b-row>
+                                </b-list-group-item>
+                              </b-list-group>
+                            </b-card>
+                          </b-collapse>
+                        </b-col>
+                      </b-row>
+                    </b-list-group-item>
+                  </b-list-group>
+
+                  <!-- <table class="table">
                       <thead>
                         <tr>
-                          <!-- <th scope="col">#</th> -->
                           <th scope="col">Status Verbose</th>
                           <th scope="col">Alarm Date</th>
-                          <!-- <th scope="col">details</th> -->
                         </tr>
                       </thead>
                       <tbody>
@@ -164,49 +216,7 @@
                           </b-collapse>
                         </tr>
                       </tbody>
-                    </table>
-
-                    <!-- <template #cell(details)="row">
-                      <b-button
-                        size="sm"
-                        @click="row.toggleDetails"
-                        class="mr-2"
-                      >
-                        {{ row.detailsShowing ? "Hide" : "Show" }} Details
-                      </b-button>
-                    </template> -->
-
-                    <!-- <template #row-details="row">
-                      <b-card no-body>
-                        <table class="table table-bordered">
-                          <tbody
-                            v-for="(
-                              itemStatusVerbose, index
-                            ) in itemWorkflow.steps"
-                            :key="index"
-                          >
-                            <tr>
-                              <th scope="col">1</th>
-                              <td>{{ itemStatusVerbose.steps }}</td>
-                              <td>
-                                <b-list-group
-                                  v-for="test in itemStatusVerbose.steps"
-                                  :key="test"
-                                >
-                                  <b-list-gtoup-item>
-                                    {{ test.stepVerbose }}
-                                  </b-list-gtoup-item>
-                                  <b-list-gtoup-item>
-                                    {{ test.alarmDate }}
-                                  </b-list-gtoup-item>
-                                </b-list-group>
-                              </td>
-                            </tr>
-                          </tbody>
-                        </table>
-                      </b-card>
-                    </template> -->
-                  </table>
+                  </table> -->
                   <!-- TEST -->
                 </div>
               </b-card-text>
@@ -237,8 +247,14 @@ export default {
       fieldsTest: ["stepVerbose", "alarmDate"],
       visibleStageSteps: false,
       visibleStepVerbose: false,
+      // '0': false,
+      // '1': false,
+      // visibleBkgContenedor: false,
     };
   },
+  // computed: {
+  //   isEmpty: ({StatusSteps})
+  // }
 };
 </script>
 
