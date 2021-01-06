@@ -256,9 +256,6 @@ export default {
       // visibleBkgContenedor: false,
     };
   },
-  // computed: {
-  //   isEmpty: ({StatusSteps})
-  // }
 };
 </script>
 

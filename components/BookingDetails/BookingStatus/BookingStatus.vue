@@ -5,8 +5,8 @@
         <b-tab title="Status" active>
           <TabStatus />
         </b-tab>
-        <b-tab title="Map">
-          <TabMap />
+        <b-tab title="Map" v-if="bookingData.latlng !=null && bookingData.latlng != ''" @shown="modalShown">
+          <TabMap :coordsList="bookingData.latlng" :bookingNum="bookingData.booking" />
         </b-tab>
         <b-tab title="Details">
           <!-- <TabDetails :statusData="bookingData" /> -->
@@ -29,6 +29,13 @@ export default {
     return {
       bookindData: this.bookingData
     }
+  },
+  methods: {
+    modalShown() {
+      setTimeout(() => {
+        this.$refs.mymap.mapObject.invalidateSize();
+      }, 100);
+    },
   }
 };
 </script>
