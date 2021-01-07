@@ -1,10 +1,20 @@
 // custom.scss
 
 // All of your custom SCSS variables go first
-$primary:       #585d6b ;
+$primary:       #8300fd ;
+// $primary:       #585d6b ;
+$primary-light:       rgba(132, 0, 255, 0.5) ;
 $secondary:     #ffffff ;
 $light:         #f1f1f1 ;
 $dark:          #000000 ;
+
+$gray-700: #495057 !default;
+
+// Popovers
+
+$popover-arrow-height: 1rem !default;
+$popover-max-width: 150px !default;
+
 //then bootstrap & bootstrap-vue should be added after 
 //so that they inherit the custom SCSS variables
 @import 'bootstrap/scss/bootstrap.scss';

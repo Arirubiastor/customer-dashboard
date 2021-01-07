@@ -1,7 +1,7 @@
 <template>
   <div>
     <b-container class="mt-4">
-      <b-tabs content-class="mt-3" justified>
+      <b-tabs content-class="mt-3" justified active-nav-tab-class="font-weight-bold">
         <b-tab title="Status" active>
           <TabStatus :workflow="bookingData.workflow" />
         </b-tab>
