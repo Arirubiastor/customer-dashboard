@@ -1,6 +1,7 @@
 <template>
   <div>
     <b-container>
+    <h1 class="text-center">Login page</h1>
       <b-card>
         <h3>Current Status</h3>
         <p>
@@ -16,6 +17,7 @@
           voluptatem blanditiis deleniti temporibus, cumque recusandae.
         </p>
       </b-card>
+    <b-button tag="nuxt-link" to="/booking-details" variant="outline-primary" class="mt-4">Booking Details</b-button>
     </b-container>
   </div>
 </template>

@@ -1,8 +1,6 @@
 <template>
   <div>
-    <h1 class="text-center">Login page</h1>
     <StatusSummary :bookingData="bookingData" />
-    <b-button tag="nuxt-link" to="/booking-details" variant="outline-primary">Booking Details</b-button>
   </div>
 </template>
 

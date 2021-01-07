@@ -3,7 +3,7 @@
     <b-container class="mt-4">
       <b-tabs content-class="mt-3" justified>
         <b-tab title="Status" active>
-          <TabStatus />
+          <TabStatus :workflow="bookingData.workflow" />
         </b-tab>
         <b-tab title="Map" v-if="bookingData.latlng !=null && bookingData.latlng != ''" @shown="modalShown">
           <TabMap :coordsList="bookingData.latlng" :bookingNum="bookingData.booking" />

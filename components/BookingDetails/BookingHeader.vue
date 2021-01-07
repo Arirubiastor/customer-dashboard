@@ -1,7 +1,8 @@
 <template>
   <div>
     <b-container>
-      <b-card no-body>
+      <!-- <b-card no-body> -->
+        <b-card>
         <h3>Booking</h3>
         <p>
           {{ bookingData.booking }}
