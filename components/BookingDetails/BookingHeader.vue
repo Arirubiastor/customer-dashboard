@@ -1,25 +1,26 @@
 <template>
   <div>
     <b-container>
-      <!-- <b-card no-body> -->
-        <b-card>
-        <h3>Booking</h3>
-        <p>
+      <b-card-group deck>
+      <b-card no-body class="p-2" border-variant="primary" align="center">
+        <b-card-header class="pt-1 pt-md-2">Booking</b-card-header>
+        <p class="font-weight-bold mb-2 mt-2 mt-md-3">
           {{ bookingData.booking }}
         </p>
       </b-card>
-      <b-card>
-        <h3>Shipper</h3>
-        <p>
+      <b-card no-body class="p-2" border-variant="primary" align="center">
+        <b-card-header class="pt-1 pt-md-2">Shipper</b-card-header>
+        <p class="font-weight-bold mb-2 mt-2 mt-md-3">
           {{ bookingData.shipper }}
         </p>
       </b-card>
-      <b-card>
-        <h3>Consignee</h3>
-        <p>
+      <b-card no-body class="p-2" border-variant="primary" align="center">
+        <b-card-header class="pt-1 pt-md-2">Consignee</b-card-header>
+        <p class="font-weight-bold mb-2 mt-2 mt-md-3">
           {{ bookingData.consignee }}
         </p>
       </b-card>
+      </b-card-group>
     </b-container>
   </div>
 </template>
@@ -35,5 +36,7 @@ export default {
 };
 </script>
 
-<style>
+<style lang="scss">
+
+
 </style>
