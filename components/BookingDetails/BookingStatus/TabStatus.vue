@@ -1,12 +1,15 @@
 <template>
   <div>
     <div class="status__container d-inline">
-      <b-card class="status__container text-center pt-lg-5">
+      <!------- Hide card on screens smaller than md / Horizontal version  ------->
+      <b-card class="status__container text-center pt-lg-5 d-none d-md-block">
         <div v-for="(stage, index) in workflow" :key="index" class="d-inline">
-
+          <!-- Dotted-line left -->
           <div class="d-inline ml-1 mr-1" v-if="index != 0">
             <b-icon
-              v-if="stage.accomplishedDate == '' || stage.accomplishedDate == null"
+              v-if="
+                stage.accomplishedDate == '' || stage.accomplishedDate == null
+              "
               icon="reception-0"
               style="width: 40px; height: 70px; color: #6c757d"
             ></b-icon>
@@ -30,6 +33,7 @@
                 icon="clock"
                 style="width: 40px; height: 40px; color: #6c757d"
                 class="d-inline"
+                animation="fade"
               ></b-icon>
               <b-icon
                 v-else
@@ -42,24 +46,23 @@
             <b-popover
               v-if="index != lastOfArray"
               :target="'popover-target-' + index"
-              triggers="click"
+              triggers="hover"
               placement="bottom"
               class="pb-4"
-              :show="show"
             >
-              <template #title>Details</template>
-              Accomplished Date:<br /><b>{{ stage.accomplishedDate }}</b> Alarm
+              <template #title>{{ popoverTitle }}</template>
+              Planned Date:<br /><b>{{ stage.accomplishedDate }}</b> Actual
               Date:<br /><b>{{ stage.alarmDate }}</b>
             </b-popover>
             <b-popover
               v-else
               :target="'popover-target-' + index"
-              triggers="click"
+              triggers="hover"
               placement="bottom"
               class="pb-4"
               :show="show"
             >
-              <template #title>Details</template>
+              <template #title>{{ popoverTitle }}</template>
               On its way!<br />
               <p v-if="stage.alarmDate != null && stage.alarmDate != ''">
                 Alarm Date:<br /><b>{{ stage.alarmDate }}</b>
@@ -70,32 +73,98 @@
             </b-popover>
           </div>
 
-          <!-- <div class="d-inline" v-if="index != 3"> -->
-          <!-- <div class="d-inline" v-if="index != workflow.lenght - 1"> -->
+          <!-- Dotted-line right -->
           <div class="d-inline ml-2 mr-2" v-if="index != lastOfArray">
+            <!-- <b-icon
+              icon="reception-0"
+              variant="primary"
+              style="width: 40px; height: 70px"
+            ></b-icon> -->
             <b-icon
+              v-if="
+                stage.accomplishedDate == '' || stage.accomplishedDate == null
+              "
+              icon="reception-0"
+              style="width: 40px; height: 70px; color: #6c757d"
+            ></b-icon>
+            <b-icon
+              v-else
               icon="reception-0"
               variant="primary"
               style="width: 40px; height: 70px"
             ></b-icon>
           </div>
         </div>
-        <!-- <b-skeleton class="status__skeleton" width="100%" variant="primary"></b-skeleton> -->
-       <b-progress :value="100" variant="primary" :animated="animate" class="status__progress"></b-progress>
-       <p>{{ guidePopover }}</p>
+        <b-progress
+          :value="100"
+          variant="primary"
+          :animated="animate"
+          class="status__progress"
+        ></b-progress>
+        <!-- <p>{{ guidePopover }}</p> -->
+      </b-card>
+
+      <!-------  Hide card on screens wider than md / Vertical version  ------->
+      <b-card no-body class="status__container text-center pt-4 pt-lg-5 d-md-none">
+        <b-container class="bv-example-row">
+          <b-row>
+            <b-col class="pl-0">
+              <div v-for="(stage, index) in workflow" :key="index">
+                <!-- Dotted-line top -->
+                <div v-if="index != 0">
+                  <b-icon
+                    v-if="
+                      stage.accomplishedDate == '' ||
+                      stage.accomplishedDate == null
+                    "
+                    icon="three-dots-vertical"
+                    style="width: 40px; height: 70px; color: #6c757d"
+                  ></b-icon>
+                  <b-icon
+                    v-else
+                    icon="three-dots-vertical"
+                    variant="primary"
+                    style="width: 40px; height: 70px"
+                  ></b-icon>
+                </div>
+
+                <!-- Icon -->
+                <div>
+                  <div class="d-inline" :id="'popover-target-' + index">
+                    <b-icon
+                      v-if="
+                        stage.accomplishedDate == '' ||
+                        stage.accomplishedDate == null
+                      "
+                      icon="clock"
+                      style="width: 40px; height: 40px; color: #6c757d"
+                      class="d-inline"
+                    ></b-icon>
+                    <b-icon
+                      v-else
+                      icon="check-circle"
+                      variant="primary"
+                      style="width: 40px; height: 40px"
+                      class="d-inline"
+                    ></b-icon>
+                  </div>
+                </div>
+              </div>
+            </b-col>
+            <b-col cols="8" class="pr-0 pl-0 text-left">
+              <div v-for="(stage, index) in workflow" :key="index" class="workflow_text pb-3">
+                <p class="stage__title">{{ stage.stageVerbose }}</p>
+                <!-- <p class="stage__title">Alarm Date:<br>{{ stage.alarmDate }}</p> -->
+                <p v-if="stage.accomplishedDate == '' ||
+                        stage.accomplishedDate == null" class="stage__title">On its way!</p>
+                <p v-else class="stage__title">Actual Date:<br>{{ stage.accomplishedDate }}</p>
+              </div>
+            </b-col>
+          </b-row>
+        </b-container>
       </b-card>
 
       <!-- <b-icon
-        icon="check-circle"
-        variant="primary"
-        style="width: 50px; height: 50px"
-      ></b-icon>
-      <b-icon
-        icon="three-dots"
-        variant="primary"
-        style="width: 30px; height: 50px"
-      ></b-icon>
-      <b-icon
         icon="three-dots"
         variant="primary"
         style="width: 30px; height: 50px"
@@ -112,11 +181,6 @@
       ></b-icon>
       <b-icon
         icon="dash-circle"
-        variant="primary"
-        style="width: 50px; height: 50px"
-      ></b-icon>
-      <b-icon
-        icon="clock"
         variant="primary"
         style="width: 50px; height: 50px"
       ></b-icon>
@@ -148,7 +212,8 @@ export default {
       show: true,
       noAlarmDate: "No alarm date yet",
       animate: true,
-      guidePopover: 'Click icon to see details'
+      // guidePopover: "Click icon to see details",
+      popoverTitle: "Schedule"
     };
   },
   computed: {
@@ -158,9 +223,9 @@ export default {
   },
   methods: {
     onDisable() {
-        this.popover('disable')
-      }
-  }
+      this.popover("disable");
+    },
+  },
 };
 </script>
 
@@ -176,5 +241,9 @@ export default {
 
 .status__progress {
   margin-top: 4rem;
+}
+
+.workflow_text {
+  height: 118px;
 }
 </style>

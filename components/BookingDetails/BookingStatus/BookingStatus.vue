@@ -1,8 +1,8 @@
 <template>
   <div>
-    <b-container class="mt-4">
-      <b-tabs content-class="mt-3" justified active-nav-tab-class="font-weight-bold">
-        <b-tab title="Status" active>
+    <b-container class="tabs__container">
+      <b-tabs content-class="mt-1 mt-md-3" justified active-nav-item-class="font-weight-bold text-primary">
+        <b-tab class="d-inline" title="Status" active>
           <TabStatus :workflow="bookingData.workflow" />
         </b-tab>
         <b-tab title="Map" v-if="bookingData.latlng !=null && bookingData.latlng != ''" @shown="modalShown">
@@ -40,5 +40,8 @@ export default {
 };
 </script>
 
-<style>
+<style lang="scss">
+.tabs__container {
+  margin-top: 5rem;
+}
 </style>

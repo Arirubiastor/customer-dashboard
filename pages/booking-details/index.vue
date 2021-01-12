@@ -1,10 +1,10 @@
 <template>
   <div>
-    <h1 class="text-center">Booking Details</h1>
-    <b-container>
+    <!-- <h1 class="text-center">Booking Details</h1> -->
+    <!-- <b-container>
       <b-button tag="nuxt-link" to="/" variant="outline-primary" class="mb-4">Back to login</b-button>
-    </b-container>
-    <BookingHeader :bookingData="bookingData" />
+    </b-container> -->
+    <BookingHeader :bookingData="bookingData" class="mt-4 mt-md-5" />
     <BookingStatus :bookingData="bookingData" />
     <BookingWorkflow :workflow="bookingData.workflow" />
   </div>
@@ -24,7 +24,7 @@ export default {
   async created() {
     // GET request using fetch with async/await
     const response = await fetch(
-      "https://e7pmpg7z85.execute-api.us-west-2.amazonaws.com/prod/obtienedatosbooking?identityBooking=120193&nombreCliente=Schryver"
+      "https://e7pmpg7z85.execute-api.us-west-2.amazonaws.com/prod/obtienedatosbooking?identityBooking=111334&nombreCliente=Schryver" // anterior 120193
     );
     const data = await response.json();
     console.log((JSON.parse(data.JsonBooking)))
