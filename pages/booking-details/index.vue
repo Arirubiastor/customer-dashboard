@@ -13,6 +13,11 @@
 <script>
 // import data from '~/static/bookingData.json'
 import axios from "axios";
+import Vue from 'vue'
+import { BootstrapVue, BootstrapVueIcons } from 'bootstrap-vue'
+
+Vue.use(BootstrapVue)
+Vue.use(BootstrapVueIcons)
 
 export default {
   data() {
@@ -24,7 +29,7 @@ export default {
   async created() {
     // GET request using fetch with async/await
     const response = await fetch(
-      "https://e7pmpg7z85.execute-api.us-west-2.amazonaws.com/prod/obtienedatosbooking?identityBooking=111334&nombreCliente=Schryver" // anterior 120193
+      "https://e7pmpg7z85.execute-api.us-west-2.amazonaws.com/prod/obtienedatosbooking?identityBooking=111334&nombreCliente=Schryver" // anterior 120193 111334
     );
     const data = await response.json();
     console.log((JSON.parse(data.JsonBooking)))

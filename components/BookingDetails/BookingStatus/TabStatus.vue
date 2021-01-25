@@ -33,7 +33,7 @@
                 icon="clock"
                 style="width: 40px; height: 40px; color: #6c757d"
                 class="d-inline"
-                animation="fade"
+                focusable="false"
               ></b-icon>
               <b-icon
                 v-else
@@ -44,15 +44,20 @@
               ></b-icon>
             </div>
             <b-popover
-              v-if="index != lastOfArray"
+              v-if="stage.accomplishedDate == '' || stage.accomplishedDate == null"
               :target="'popover-target-' + index"
               triggers="hover"
               placement="bottom"
               class="pb-4"
             >
-              <template #title>{{ popoverTitle }}</template>
-              Planned Date:<br /><b>{{ stage.accomplishedDate }}</b> Actual
-              Date:<br /><b>{{ stage.alarmDate }}</b>
+            <template #title>{{ popoverTitle }}</template>
+              On its way!<br />
+              <p v-if="stage.alarmDate != null && stage.alarmDate != ''">
+                Alarm Date:<br /><b>{{ stage.alarmDate }}</b>
+              </p>
+              <p v-else>
+                <br /><b>{{ noAlarmDate }}</b>
+              </p>
             </b-popover>
             <b-popover
               v-else
@@ -63,13 +68,9 @@
               :show="show"
             >
               <template #title>{{ popoverTitle }}</template>
-              On its way!<br />
-              <p v-if="stage.alarmDate != null && stage.alarmDate != ''">
-                Alarm Date:<br /><b>{{ stage.alarmDate }}</b>
-              </p>
-              <p v-else>
-                <br /><b>{{ noAlarmDate }}</b>
-              </p>
+              Planned Date:<br /><b>{{ stage.accomplishedDate }}</b> Actual
+              Date:<br /><b>{{ stage.alarmDate }}</b>
+              
             </b-popover>
           </div>
 

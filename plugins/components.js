@@ -8,12 +8,12 @@ import TabMap from '~/components/BookingDetails/BookingStatus/TabMap.vue'
 import TabDetails from '~/components/BookingDetails/BookingStatus/TabDetails.vue'
 // import { LMap, LTileLayer, LMarker } from 'vue2-leaflet';
 
-import { 
-    BootstrapVue, 
-    BIcon, 
-    BIconInfoSquare, 
-    BIconInfoSquareFill,
-} from 'bootstrap-vue'
+// import { 
+//     BootstrapVue, 
+//     BIcon, 
+//     BIconInfoSquare, 
+//     BIconInfoSquareFill,
+// } from 'bootstrap-vue'
 
 Vue.component('booking-header', BookingHeader)
 Vue.component('booking-status', BookingStatus)
@@ -26,7 +26,7 @@ Vue.component('tab.details', TabDetails)
 // Vue.component('l-tile-layer', LTileLayer);
 // Vue.component('l-marker', LMarker);
 
-Vue.use(BootstrapVue)
-Vue.component('BIcon', BIcon)
-Vue.component('BIconInfoSquare', BIconInfoSquare)
-Vue.component('BIconInfoSquareFill', BIconInfoSquareFill)
+// Vue.use(BootstrapVue)
+// Vue.component('BIcon', BIcon)
+// Vue.component('BIconInfoSquare', BIconInfoSquare)
+// Vue.component('BIconInfoSquareFill', BIconInfoSquareFill)
