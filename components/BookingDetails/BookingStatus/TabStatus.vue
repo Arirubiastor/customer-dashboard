@@ -51,14 +51,21 @@
               class="pb-4"
             >
             <template #title>{{ popoverTitle }}</template>
-              On its way!<br />
-              <p v-if="stage.alarmDate != null && stage.alarmDate != ''">
+              Planned Date:<br />
+              <b v-if="stage.accomplishedDate == ''">----</b>
+              <b>{{ stage.accomplishedDate }}</b>
+              <br>
+              <!-- <p v-if="stage.alarmDate != null && stage.alarmDate != ''">
                 Alarm Date:<br /><b>{{ stage.alarmDate }}</b>
               </p>
               <p v-else>
                 <br /><b>{{ noAlarmDate }}</b>
-              </p>
+              </p> -->
+              Actual Date:<br />
+              <b v-if="stage.alarmDate == ''">----</b>
+              <b v-else>{{ stage.alarmDate }}</b>
             </b-popover>
+            <!-- Porpover for completed stage -->
             <b-popover
               v-else
               :target="'popover-target-' + index"
@@ -68,8 +75,12 @@
               :show="show"
             >
               <template #title>{{ popoverTitle }}</template>
-              Planned Date:<br /><b>{{ stage.accomplishedDate }}</b> Actual
-              Date:<br /><b>{{ stage.alarmDate }}</b>
+              Planned Date:<br />
+              <b class="color-completed__popover" v-if="stage.accomplishedDate == ''">----</b>
+              <b>{{ stage.accomplishedDate }}
+              </b> Actual Date:<br />
+              <b class="color-completed__popover" v-if="stage.alarmDate == ''">----</b>
+              <b v-else>{{ stage.alarmDate }}</b>
               
             </b-popover>
           </div>
@@ -233,11 +244,14 @@ export default {
 <style lang="scss">
 .status__container {
   padding-top: 5rem;
-  padding-bottom: 2rem;
+  padding-bottom: 3.2rem;
 }
 
 .stage__title {
   top: 15rem;
+  right: 2rem;
+  font-size: 1.2rem;
+  font-family: 'Abel', sans-serif;
 }
 
 .status__progress {
@@ -246,5 +260,9 @@ export default {
 
 .workflow_text {
   height: 118px;
+}
+
+.color-completed__popover {
+  color:  #cc092f; // has to be $primary
 }
 </style>
