@@ -1,5 +1,5 @@
 <template>
-  <div class="mb-md-5">
+  <div class="workflow__container mb-md-5">
     <b-container class="workflow__container mt-4 mb-4 mb-md-5">
       <!-- <b-container fluid class="mt-4"> -->
       <h2 class="mb-4">Shipment Milestones</h2>
@@ -12,7 +12,12 @@
           :key="index"
         >
           <b-card-header header-tag="header" class="p-1" role="tab">
-            <b-button block v-b-toggle="'accordion-' + index" variant="primary" class="button-accordion">
+            <b-button
+              block
+              v-b-toggle="'accordion-' + index"
+              variant="primary"
+              class="button-accordion"
+            >
               <b-row>
                 <b-col cols="12" class="text-left">{{
                   itemWorkflow.stageVerbose
@@ -41,12 +46,15 @@
               <b-card-text>
                 <!-- {{ itemWorkflow.steps }}   -->
                 <div>
-
                   <b-list-group>
                     <b-list-group-item>
                       <b-row>
-                        <b-col class="font-weight-bold pl-1 pl-md-4">Status</b-col>
-                        <b-col class="font-weight-bold pl-0">Planned Date</b-col>
+                        <b-col class="font-weight-bold pl-1 pl-md-4"
+                          >Status</b-col
+                        >
+                        <b-col class="font-weight-bold pl-0"
+                          >Planned Date</b-col
+                        >
                       </b-row>
                     </b-list-group-item>
                   </b-list-group>
@@ -66,40 +74,39 @@
                             itemStatusVerbose.accomplishedDate != ''
                           "
                           >{{ itemStatusVerbose.accomplishedDate }}
-                          </b-col
-                        >
+                        </b-col>
                         <b-col v-else>{{ emptyString }}</b-col>
                         <b-button
-                            v-b-toggle="'collapse-' + index"
-                            @click="
-                              itemStatusVerbose.index = !itemStatusVerbose.index
-                            "
-                            v-if="itemStatusVerbose.steps != null"
-                            class="p-0 mr-1 mr-md-2"
-                          >
-                            <b-icon
-                              icon="chevron-down"
-                              aria-label="Show Details"
-                              class="mr-0"
-                              name="icon"
-                            ></b-icon>
-                          </b-button>
-                          <b-button
-                            v-b-toggle="'collapse-' + index"
-                            @click="
-                              itemStatusVerbose.index = !itemStatusVerbose.index
-                            "
-                            v-else
-                            disabled
-                            class="p-0 mr-1 mr-md-2"
-                          >
-                            <b-icon
-                              icon="chevron-down"
-                              aria-label="Show Details"
-                              class="mr-0"
-                              name="icon"
-                            ></b-icon>
-                          </b-button>
+                          v-b-toggle="'collapse-' + index"
+                          @click="
+                            itemStatusVerbose.index = !itemStatusVerbose.index
+                          "
+                          v-if="itemStatusVerbose.steps != null"
+                          class="p-0 mr-1 mr-md-2"
+                        >
+                          <b-icon
+                            icon="chevron-down"
+                            aria-label="Show Details"
+                            class="mr-0"
+                            name="icon"
+                          ></b-icon>
+                        </b-button>
+                        <b-button
+                          v-b-toggle="'collapse-' + index"
+                          @click="
+                            itemStatusVerbose.index = !itemStatusVerbose.index
+                          "
+                          v-else
+                          disabled
+                          class="p-0 mr-1 mr-md-2"
+                        >
+                          <b-icon
+                            icon="chevron-down"
+                            aria-label="Show Details"
+                            class="mr-0"
+                            name="icon"
+                          ></b-icon>
+                        </b-button>
                       </b-row>
                       <b-row>
                         <b-col class="p-0">
@@ -113,7 +120,8 @@
                                   :key="index"
                                 >
                                   <b-row>
-                                    <b-col class="pl-0 pl-md-3"
+                                    <b-col
+                                      class="pl-0 pl-md-3"
                                       v-if="
                                         itemStepVerbose.stepVerbose != null &&
                                         itemStepVerbose.stepVerbose != ''
@@ -250,6 +258,12 @@ export default {
 // }
 
 .workflow__container {
-  margin-bottom: 8rem;
+  margin-bottom: 2rem;
+}
+
+@media (min-width: 768px) {
+  .workflow__container {
+    margin-bottom: 6rem !important;
+  }
 }
 </style>

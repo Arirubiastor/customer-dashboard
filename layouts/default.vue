@@ -20,6 +20,7 @@ export default {
 
 <style>
 html {
+  margin-top: 80px;
 }
 
 *,

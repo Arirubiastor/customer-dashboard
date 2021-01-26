@@ -1,6 +1,6 @@
 <template>
   <div>
-    <b-navbar type="dark" variant="primary">
+    <b-navbar type="dark" variant="primary" fixed="top">
       <b-navbar-brand class="ml-md-4">
         <b-img :src="bookingData.imageLogo" class="brand-image__header m-2"></b-img>
       </b-navbar-brand>
