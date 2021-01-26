@@ -1,5 +1,6 @@
 <template>
   <div>
+    <TheHeader :bookingData="bookingData" />
     <!-- <h1 class="text-center">Booking Details</h1> -->
     <!-- <b-container>
       <b-button tag="nuxt-link" to="/" variant="outline-primary" class="mb-4">Back to login</b-button>

@@ -1,5 +1,6 @@
 <template>
   <div>
+    <TheHeader :bookingData="bookingData" />
     <StatusSummary :bookingData="bookingData" :workflow="bookingData.workflow" />
   </div>
 </template>
@@ -39,7 +40,7 @@ export default {
   //   return {data}
 
   // },
-  
+
 
   // async asyncData({ params, $http }) {
   //     const post = await $http.$get(`https://api.nuxtjs.dev/posts/${params.id}`)
