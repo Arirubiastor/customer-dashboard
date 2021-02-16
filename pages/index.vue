@@ -17,6 +17,7 @@ export default {
   data() {
     return {
       bookingData: [],
+      identityBooking: '',
     }
   },
   asyncData ({ params }) {
@@ -24,18 +25,19 @@ export default {
     return {bookingData:data}
   },
 
- mounted() {
-    console.log(this.$route.query.identityBooking);
-  },
+//  beforeCreate() {
+//     let identityBooking = this.$route.query.identityBooking
+//     console.log('mounted' + identityBooking);
+//   },
 
    async created() {
     // GET request using fetch with async/await
-    console.log(this.$route.query.identityBooking);
-    let identityBooking = '126110';
-    // let identityBooking = this.$route.query.identityBooking;
-    let nombreCliente = 'Schryver';
+    
+    // let uuid = this.$route.query.uuid;
+    let identityBooking = this.$route.query.identityBooking;
+    let nombreCliente = this.$route.query.nombreCliente;
     const response = await fetch(
-      `https://e7pmpg7z85.execute-api.us-west-2.amazonaws.com/prod/obtienedatosbooking?identityBooking=${identityBooking}&nombreCliente=${nombreCliente}` // anterior 120193
+      `https://e7pmpg7z85.execute-api.us-west-2.amazonaws.com/prod/obtienedatosbooking?identityBooking=${identityBooking}&nombreCliente=${nombreCliente}`
     );
     const data = await response.json();
     console.log((JSON.parse(data.JsonBooking)))
