@@ -24,10 +24,18 @@ export default {
     return {bookingData:data}
   },
 
+ mounted() {
+    console.log(this.$route.query.identityBooking);
+  },
+
    async created() {
     // GET request using fetch with async/await
+    console.log(this.$route.query.identityBooking);
+    let identityBooking = '126110';
+    // let identityBooking = this.$route.query.identityBooking;
+    let nombreCliente = 'Schryver';
     const response = await fetch(
-      "https://e7pmpg7z85.execute-api.us-west-2.amazonaws.com/prod/obtienedatosbooking?identityBooking=111334&nombreCliente=Schryver" // anterior 120193
+      `https://e7pmpg7z85.execute-api.us-west-2.amazonaws.com/prod/obtienedatosbooking?identityBooking=${identityBooking}&nombreCliente=${nombreCliente}` // anterior 120193
     );
     const data = await response.json();
     console.log((JSON.parse(data.JsonBooking)))

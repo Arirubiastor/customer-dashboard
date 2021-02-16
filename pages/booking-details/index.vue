@@ -30,7 +30,7 @@ export default {
   async created() {
     // GET request using fetch with async/await
     const response = await fetch(
-      "https://e7pmpg7z85.execute-api.us-west-2.amazonaws.com/prod/obtienedatosbooking?identityBooking=111334&nombreCliente=Schryver" // anterior 120193 111334
+      "https://e7pmpg7z85.execute-api.us-west-2.amazonaws.com/prod/obtienedatosbooking?identityBooking=126110&nombreCliente=Schryver" // anterior 120193 111334
     );
     const data = await response.json();
     console.log((JSON.parse(data.JsonBooking)))
