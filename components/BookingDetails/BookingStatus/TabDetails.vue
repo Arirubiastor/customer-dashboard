@@ -3,56 +3,69 @@
     <b-list-group>
       <b-list-group-item>
         <b-row>
-          <b-col cols="4" class="font-weight-bold">Type</b-col>
-          <b-col>{{ statusData.type }}</b-col>
+          <b-col cols="md-4" class="font-weight-bold">Route Type</b-col>
+          <b-col v-if="statusData.type != null && statusData.type != ''">{{ statusData.type }}</b-col>
+          <b-col v-else>{{ emptyString }}</b-col>
         </b-row>
       </b-list-group-item>
       <b-list-group-item>
         <b-row>
-          <b-col cols="md-4" class="font-weight-bold">Movement</b-col>
-          <b-col>{{ statusData.movement }}</b-col>
+          <b-col cols="md-4" class="font-weight-bold">Main Transport</b-col>
+          <b-col v-if="statusData.movement != null && statusData.movement != ''">{{ statusData.movement }}</b-col>
+          <b-col v-else>{{ emptyString }}</b-col>
         </b-row>
       </b-list-group-item>
-      <b-list-group-item>
-        <b-row>
-          <b-col cols="md-4" class="font-weight-bold"
-            >Sales Executive Responsable</b-col
-          >
-          <b-col>{{ statusData.salesExecRes }}</b-col>
-        </b-row>
-      </b-list-group-item>
-      <b-list-group-item>
+      <b-list-group-item v-if="statusData.salesRepOrigin != null">
         <b-row>
           <b-col cols="md-4" class="font-weight-bold"
-            >Operatons Executive Responsable</b-col
+            >Sales Representative Origin</b-col
           >
-          <b-col>{{ statusData.opsExecRes }}</b-col>
+          <b-col>{{ statusData.salesRepOrigin }}</b-col>
+        </b-row>
+      </b-list-group-item>
+      <b-list-group-item v-if="statusData.opsExecOrigin != null">
+        <b-row>
+          <b-col cols="md-4" class="font-weight-bold">Customer Service Origin</b-col>
+          <b-col>{{ statusData.opsExecOrigin }}</b-col>
+        </b-row>
+      </b-list-group-item>
+      <b-list-group-item v-if="statusData.salesRepDestination != null">
+        <b-row>
+          <b-col cols="md-4" class="font-weight-bold">Sales Representative Destination</b-col>
+          <b-col>{{ statusData.salesRepDestination }}</b-col>
+        </b-row>
+      </b-list-group-item>
+      <b-list-group-item v-if="statusData.opsExecDestination != null">
+        <b-row>
+          <b-col cols="md-4" class="font-weight-bold">Customer Service Destination</b-col>
+          <b-col>{{ statusData.opsExecDestination }}</b-col>
+        </b-row>
+      </b-list-group-item>
+      <b-list-group-item v-if="statusData.salesRep != null">
+        <b-row>
+          <b-col cols="md-4" class="font-weight-bold">Sales Representative</b-col>
+          <b-col>{{ statusData.salesRep }}</b-col>
+        </b-row>
+      </b-list-group-item>
+      <b-list-group-item v-if="statusData.opsExec != null">
+        <b-row>
+          <b-col cols="md-4" class="font-weight-bold">Customer Service</b-col>
+          <b-col>{{ statusData.opsExec }}</b-col>
         </b-row>
       </b-list-group-item>
       <b-list-group-item>
         <b-row>
-          <b-col cols="md-4" class="font-weight-bold">Sales ExecCor</b-col>
-          <b-col>{{ statusData.salesExecCor }}</b-col>
-        </b-row>
-      </b-list-group-item>
-      <b-list-group-item>
-        <b-row>
-          <b-col cols="md-4" class="font-weight-bold">Ops ExecCor</b-col>
-          <b-col>{{ statusData.opsExecCor }}</b-col>
-        </b-row>
-      </b-list-group-item>
-      <b-list-group-item>
-        <b-row>
-          <b-col cols="md-4" class="font-weight-bold"
-            >DescriptionGoodsBkg</b-col
+          <b-col cols="md-4" class="font-weight-bold">Description of Goods</b-col
           >
-          <b-col>{{ statusData.descriptionGoodsBkg }}</b-col>
+          <b-col v-if="statusData.descriptionGoodsBkg != null && statusData.descriptionGoodsBkg != ''">{{ statusData.descriptionGoodsBkg }}</b-col>
+          <b-col v-else>{{ emptyString }}</b-col>
         </b-row>
       </b-list-group-item>
       <b-list-group-item>
         <b-row>
-          <b-col cols="md-4" class="font-weight-bold">Incoterm </b-col>
-          <b-col>{{ statusData.incoterm }}</b-col>
+          <b-col cols="md-4" class="font-weight-bold">Incoterm</b-col>
+          <b-col v-if="statusData.incoterm != null && statusData.incoterm != ''">{{ statusData.incoterm }}</b-col>
+          <b-col v-else>{{ emptyString }}</b-col>
         </b-row>
       </b-list-group-item>
       <b-list-group-item class="p-0">
@@ -60,24 +73,26 @@
           <b-col>
             <b-button
               block
-              class="p-3 font-weight-bold text-left"
+              class="show-details__button p-3 font-weight-bold text-left"
               :class="visibleTramoBkg ? null : 'collapsed'"
               :aria-expanded="visibleTramoBkg ? 'true' : 'false'"
               aria-controls="collapse-tramoBkg"
               @click="visibleTramoBkg = !visibleTramoBkg"
-              >TramoBkg
-              <b-icon
+              >Route Details
+              <div>
+                <b-icon
                 v-if="!visibleTramoBkg"
                 icon="plus-square"
                 aria-label="Show Details"
-                class="mr-0"
+                class="ml-0"
               ></b-icon>
               <b-icon
                 v-else
                 icon="dash-square"
                 aria-label="Hide Details"
-                class="mr-0"
               ></b-icon>
+              </div>
+              
             </b-button>
             <b-collapse id="collapse-tramoBkg" v-model="visibleTramoBkg">
               <div v-for="itemTramoBkg in tramoBkg" :key="itemTramoBkg">
@@ -85,67 +100,95 @@
                   <b-list-group-item>
                     <b-row>
                       <b-col cols="md-4" class="font-weight-bold"
-                        >RouteType</b-col
+                        >Route Mode</b-col
                       >
-                      <b-col>{{ itemTramoBkg.routeType }}</b-col>
+                      <b-col v-if="itemTramoBkg.routeType != null && itemTramoBkg.routeType != ''">{{ itemTramoBkg.routeType }}</b-col>
+                      <b-col v-else>{{ emptyString }}</b-col>
                     </b-row>
                   </b-list-group-item>
                   <b-list-group-item>
                     <b-row>
                       <b-col cols="md-4" class="font-weight-bold"
-                        >PortLoading</b-col
+                        ><span v-if="itemTramoBkg.routeType === 'Truck'">Place</span>
+                        <span v-else-if="itemTramoBkg.routeType === 'Air'">Airport</span>
+                        <span v-else-if="itemTramoBkg.routeType === 'Sea'">Port</span>
+                        of Loading</b-col
                       >
-                      <b-col>{{ itemTramoBkg.portLoading }}</b-col>
+                      <b-col v-if="itemTramoBkg.loading != null && itemTramoBkg.loading != ''">{{ itemTramoBkg.loading }}</b-col>
+                      <b-col v-else>{{ emptyString }}</b-col>
                     </b-row>
                   </b-list-group-item>
                   <b-list-group-item>
                     <b-row>
                       <b-col cols="md-4" class="font-weight-bold"
-                        >PortDischarge</b-col
+                        ><span v-if="itemTramoBkg.routeType === 'Truck'">Place</span>
+                        <span v-else-if="itemTramoBkg.routeType === 'Air'">Airport</span>
+                        <span v-else-if="itemTramoBkg.routeType === 'Sea'">Port</span>
+                         of Discharge</b-col
                       >
-                      <b-col>{{ itemTramoBkg.portDischarge }}</b-col>
+                      <b-col v-if="itemTramoBkg.discharge != null && itemTramoBkg.discharge != ''">{{ itemTramoBkg.discharge }}</b-col>
+                      <b-col v-else>{{ emptyString }}</b-col>
                     </b-row>
                   </b-list-group-item>
-                  <b-list-group-item>
+                  <b-list-group-item v-if="itemTramoBkg.vessel != null">
                     <b-row>
                       <b-col cols="md-4" class="font-weight-bold">Vessel</b-col>
-                      <b-col>{{ itemTramoBkg.vessel }}</b-col>
+                      <b-col v-if="itemTramoBkg.vessel != null && itemTramoBkg.vessel != ''">{{ itemTramoBkg.vessel }}</b-col>
+                      <b-col v-else>{{ emptyString }}</b-col>
+                    </b-row>
+                  </b-list-group-item>
+                  <b-list-group-item v-if="itemTramoBkg.flight != null">
+                    <b-row>
+                      <b-col cols="md-4" class="font-weight-bold">Flight</b-col>
+                      <b-col v-if="itemTramoBkg.flight != null && itemTramoBkg.flight != ''">{{ itemTramoBkg.flight }}</b-col>
+                      <b-col v-else>{{ emptyString }}</b-col>
+                    </b-row>
+                  </b-list-group-item>
+                  <b-list-group-item v-if="itemTramoBkg.truckType != null">
+                    <b-row>
+                      <b-col cols="md-4" class="font-weight-bold">Truck Type</b-col>
+                      <b-col v-if="itemTramoBkg.truckType != null && itemTramoBkg.truckType != ''">{{ itemTramoBkg.truckType }}</b-col>
+                      <b-col v-else>{{ emptyString }}</b-col>
                     </b-row>
                   </b-list-group-item>
                   <b-list-group-item>
                     <b-row>
-                      <b-col cols="md-4" class="font-weight-bold">etd</b-col>
-                      <b-col>{{ itemTramoBkg.etd }}</b-col>
+                      <b-col cols="md-4" class="font-weight-bold">ETD</b-col>
+                      <b-col v-if="itemTramoBkg.etd != null && itemTramoBkg.etd != ''">{{ itemTramoBkg.etd }}</b-col>
+                      <b-col v-else>{{ emptyString }}</b-col>
                     </b-row>
                   </b-list-group-item>
                   <b-list-group-item>
                     <b-row>
-                      <b-col cols="md-4" class="font-weight-bold">eta</b-col>
-                      <b-col>{{ itemTramoBkg.eta }}</b-col>
+                      <b-col cols="md-4" class="font-weight-bold">ETA</b-col>
+                      <b-col v-if="itemTramoBkg.eta != null && itemTramoBkg.eta != ''">{{ itemTramoBkg.eta }}</b-col>
+                      <b-col v-else>{{ emptyString }}</b-col>
                     </b-row>
                   </b-list-group-item>
-                  <b-list-group-item>
+                  <b-list-group-item v-if="itemTramoBkg.freeDaysOrigin != null">
                     <b-row>
                       <b-col cols="md-4" class="font-weight-bold"
-                        >FreeDaysOrigin</b-col
+                        >Free Days at Origin</b-col
                       >
                       <b-col>{{ itemTramoBkg.freeDaysOrigin }}</b-col>
                     </b-row>
                   </b-list-group-item>
-                  <b-list-group-item>
+                  <b-list-group-item v-if="itemTramoBkg.freeDaysDestination != null">
                     <b-row>
                       <b-col cols="md-4" class="font-weight-bold"
-                        >freeDaysDestination</b-col
+                        >Free Days at Destination</b-col
                       >
                       <b-col>{{ itemTramoBkg.freeDaysDestination }}</b-col>
                     </b-row>
                   </b-list-group-item>
                   <b-button
                     v-b-toggle="'collapse-2'"
-                    class="m-0 p-3 font-weight-bold text-left"
+                    class="show-details__button m-0 p-3 font-weight-bold text-left"
                     @click="visibleBkgContenedor = !visibleBkgContenedor"
-                    >bkgContenedor
-                    <b-icon
+                    v-if="bkgContenedor == null"
+                    >Container Details
+                    <div>
+                      <b-icon
                       v-if="!visibleBkgContenedor"
                       icon="plus-square"
                       aria-label="Show Details"
@@ -155,6 +198,17 @@
                       v-else
                       icon="dash-square"
                       aria-label="Hide Details"
+                      class="mr-0"
+                    ></b-icon>
+                    </div>
+                  </b-button>
+                  <b-button
+                    class="show-details__button m-0 p-3 font-weight-bold text-left"
+                    v-else disabled
+                    >Container Details (No details)
+                    <b-icon
+                      icon="plus-square"
+                      aria-label="Show Details"
                       class="mr-0"
                     ></b-icon>
                   </b-button>
@@ -167,9 +221,10 @@
                         <b-list-group-item>
                           <b-row>
                             <b-col cols="md-4" class="font-weight-bold"
-                              >Qty</b-col
+                              >Quantity</b-col
                             >
-                            <b-col>{{ itemBkgContenedor.qty }}</b-col>
+                            <b-col v-if="itemBkgContenedor.qty != null && itemBkgContenedor.qty != ''">{{ itemBkgContenedor.qty }}</b-col>
+                            <b-col v-else>{{ emptyString }}</b-col>
                           </b-row>
                         </b-list-group-item>
                         <b-list-group-item>
@@ -177,7 +232,8 @@
                             <b-col cols="md-4" class="font-weight-bold"
                               >Type</b-col
                             >
-                            <b-col>{{ itemBkgContenedor.type }}</b-col>
+                            <b-col v-if="itemBkgContenedor.type != null && itemBkgContenedor.type != ''">{{ itemBkgContenedor.type }}</b-col>
+                            <b-col v-else>{{ emptyString }}</b-col>
                           </b-row>
                         </b-list-group-item>
                         <b-list-group-item>
@@ -185,15 +241,17 @@
                             <b-col cols="md-4" class="font-weight-bold"
                               >Marks</b-col
                             >
-                            <b-col>{{ itemBkgContenedor.marks }}</b-col>
+                            <b-col v-if="itemBkgContenedor.marks != null && itemBkgContenedor.marks != ''">{{ itemBkgContenedor.marks }}</b-col>
+                            <b-col v-else>{{ emptyString }}</b-col>
                           </b-row>
                         </b-list-group-item>
                         <b-list-group-item>
                           <b-row>
                             <b-col cols="md-4" class="font-weight-bold"
-                              >GrossWeight</b-col
+                              >Gross Weight</b-col
                             >
-                            <b-col>{{ itemBkgContenedor.grossWeight }}</b-col>
+                            <b-col v-if="itemBkgContenedor.grossWeight != null && itemBkgContenedor.grossWeight != ''">{{ itemBkgContenedor.grossWeight }}</b-col>
+                            <b-col v-else>{{ emptyString }}</b-col>
                           </b-row>
                         </b-list-group-item>
                         <b-list-group-item>
@@ -201,17 +259,19 @@
                             <b-col cols="md-4" class="font-weight-bold"
                               >Volume</b-col
                             >
-                            <b-col>{{ itemBkgContenedor.volume }}</b-col>
+                            <b-col v-if="itemBkgContenedor.volume != null && itemBkgContenedor.volume != ''">{{ itemBkgContenedor.volume }}</b-col>
+                            <b-col v-else>{{ emptyString }}</b-col>
                           </b-row>
                         </b-list-group-item>
                         <b-list-group-item>
                           <b-row>
                             <b-col cols="md-4" class="font-weight-bold"
-                              >DescriptionGoodsCont</b-col
+                              >Description of Goods</b-col
                             >
-                            <b-col>{{
-                              itemBkgContenedor.descriptionGoodsCont
-                            }}</b-col>
+                            <b-col
+                              v-if="itemBkgContenedor.descriptionGoodsCont != null && itemBkgContenedor.descriptionGoodsCont != ''">{{ itemBkgContenedor.descriptionGoodsCont }}
+                            </b-col>
+                            <b-col v-else>{{ emptyString }}</b-col>
                           </b-row>
                         </b-list-group-item>
                       </b-list-group>
@@ -243,6 +303,7 @@ export default {
     return {
       visibleTramoBkg: false,
       visibleBkgContenedor: false,
+      emptyString: '---',
     };
   },
 
@@ -252,5 +313,10 @@ export default {
 };
 </script>
 
-<style>
+<style lang="scss">
+.show-details__button {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
 </style>

@@ -8,7 +8,9 @@ export default {
       { hid: 'description', name: 'description', content: '' }
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon.png' },
+      // Google Fonts
+      { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Abel&display=swap' }
     ]
   },
 
@@ -54,5 +56,8 @@ export default {
 
   // Build Configuration (https://go.nuxtjs.dev/config-build)
   build: {
+    babel: {
+      compact: true,
+    }
   }
 }

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <TheHeader />
+    <!-- <TheHeader /> -->
     <Nuxt />
     <TheFooter />
   </div>
@@ -20,6 +20,7 @@ export default {
 
 <style>
 html {
+  margin-top: 80px;
 }
 
 *,
