@@ -2,7 +2,7 @@
   <div>
     <b-container class="tabs__container">
       <b-tabs content-class="mt-1 mt-md-3" justified active-nav-item-class="font-weight-bold text-primary">
-        <b-tab class="d-inline" title="Status" active>
+        <b-tab title="Status" active>
           <TabStatus :workflow="bookingData.workflow" />
         </b-tab>
         <b-tab title="Map" v-if="bookingData.latlng !=null && bookingData.latlng != ''" @shown="modalShown">

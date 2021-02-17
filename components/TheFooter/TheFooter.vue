@@ -47,6 +47,12 @@
           <b-nav-text> Copyright &#169; 2021 | All rights reserved. </b-nav-text>
           </div>
           <b-nav-text class="mb-3">
+            <b-icon
+            icon="chat-square"
+            variant="primary"
+            style="width: 16px; height: 16px"
+            class="d-inline"
+          ></b-icon>
             <a href="https://www.exikhan.com/free-trial" target="blank">Contact and support</a> |
             <b-icon
             icon="journals"

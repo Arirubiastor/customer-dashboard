@@ -22,7 +22,10 @@
           </div>
 
           <div class="d-inline">
-            <div class="d-inline position-absolute">
+            <div class="d-inline" v-if="workflow.length === 1">
+              <p class="stage__title">{{ stage.stageVerbose }}</p>
+            </div>
+            <div class="d-inline position-absolute" v-else>
               <p class="stage__title">{{ stage.stageVerbose }}</p>
             </div>
             <div class="d-inline" :id="'popover-target-' + index">
