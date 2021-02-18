@@ -30,11 +30,11 @@ export default {
   async created() {
     // GET request using fetch with async/await
 
-    // let uuid = this.$route.query.uuid;
-    let identityBooking = this.$route.query.identityBooking;
+    let uuidBooking = this.$route.query.uuidBooking;
+    // let identityBooking = this.$route.query.identityBooking;
     let nombreCliente = this.$route.query.nombreCliente;
     const response = await fetch(
-      `https://e7pmpg7z85.execute-api.us-west-2.amazonaws.com/prod/obtienedatosbooking?identityBooking=${identityBooking}&nombreCliente=${nombreCliente}`
+      `https://e7pmpg7z85.execute-api.us-west-2.amazonaws.com/prod/obtienedatosbooking?uuidBooking=${uuidBooking}&nombreCliente=${nombreCliente}`
     );
     const data = await response.json();
     console.log((JSON.parse(data.JsonBooking)))
