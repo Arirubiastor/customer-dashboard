@@ -17,7 +17,7 @@ export default {
   data() {
     return {
       bookingData: [],
-      identityBooking: '',
+      uuidBooking: '',
     }
   },
   asyncData ({ params }) {

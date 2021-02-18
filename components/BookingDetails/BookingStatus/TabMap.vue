@@ -1,7 +1,7 @@
 <template>
   <div>
     <div style="height: 500px; width: 100%;">
-      <div class="info" style="height: 15%">
+      <!-- <div class="info" style="height: 15%">
         <span>Center: {{ center }}</span>
         <span>Zoom: {{ zoom }}</span>
         <span>maxZoom: {{ maxZoom }}</span>
@@ -9,7 +9,7 @@
         <span v-for="coordsItem in coordsList" :key="coordsItem"
           >Coords: {{ coordsItem }}</span
         >
-      </div>
+      </div> -->
       
         <l-map
           :zoom="zoom"
