@@ -121,14 +121,20 @@
             ></b-form-input>
             <!-- to="/booking-details"
             tag="nuxt-link" -->
-            <b-button 
+            <!-- <b-button 
               to="/booking-details"
               tag="nuxt-link"
               variant="outline-primary"
               class="mt-4 mb-4 ml-md-4 mt-md-0"
               @click.native="checkBooking()"
-              >Validate</b-button
-            >
+              >Validate</b-button> -->
+              <b-button 
+              :to="`/booking-details/?uuidBooking=${this.$route.query.uuidBooking}&nombreCliente=SchryverPruebas`"
+              tag="nuxt-link"
+              variant="outline-primary"
+              class="mt-4 mb-4 ml-md-4 mt-md-0"
+              @click.native="checkBooking()"
+              >Validate</b-button>
           </form>
         </b-col>
       </b-row>

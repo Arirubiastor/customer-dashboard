@@ -10,13 +10,15 @@ export default {
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.png' },
       // Google Fonts
-      { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Abel&display=swap' }
+      { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Abel&display=swap' },
+      //---------- TEST MAP
+      // { rel: 'stylesheet', href: 'https://unpkg.com/leaflet@1.2.0/dist/leaflet.css' },
     ]
   },
 
   // Global CSS (https://go.nuxtjs.dev/config-css)
   css: [
-    "~/assets/scss/custom.scss"
+    "~/assets/scss/custom.scss",
   ],
 
   // Plugins to run before rendering page (https://go.nuxtjs.dev/config-plugins)

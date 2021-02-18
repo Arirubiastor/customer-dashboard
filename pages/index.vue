@@ -17,7 +17,7 @@ export default {
   data() {
     return {
       bookingData: [],
-      identityBooking: '',
+      uuidBooking: '',
     }
   },
   asyncData ({ params }) {
@@ -33,29 +33,34 @@ export default {
    async created() {
     // GET request using fetch with async/await
     
-    // let uuid = this.$route.query.uuid;
-    let identityBooking = this.$route.query.identityBooking;
+    let uuidBooking = this.$route.query.uuidBooking;
+    // let identityBooking = this.$route.query.identityBooking;
     let nombreCliente = this.$route.query.nombreCliente;
     const response = await fetch(
-      `https://e7pmpg7z85.execute-api.us-west-2.amazonaws.com/prod/obtienedatosbooking?identityBooking=${identityBooking}&nombreCliente=${nombreCliente}`
+      `https://e7pmpg7z85.execute-api.us-west-2.amazonaws.com/prod/obtienedatosbooking?uuidBooking=${uuidBooking}&nombreCliente=${nombreCliente}`
     );
     const data = await response.json();
     console.log((JSON.parse(data.JsonBooking)))
     this.bookingData = JSON.parse(data.JsonBooking);
+
+    // if (data.identityBooking === this.$route.query.identityBooking) {
+    //   this.data = data
+    // } else {
+    //   // set status code on server and
+    //   if (process.server) {
+    //     this.$nuxt.context.response.statusCode = 404
+    //   }
+    //   // use throw new Error()
+    //   throw new Error('Booking not found')
+    // }
+
+    if (response.ok) {
+      return response;
+    } else {
+      throw Error(`Request rejected with status ${res.status}`);
+    }
+    // .catch(console.error)
   },
-
-  // async asyncData () {
-  //   const {data} = await axios.get('jsonObject')
-  //   console.log('Data:' + data)
-  //   return {data}
-
-  // },
-
-
-  // async asyncData({ params, $http }) {
-  //     const post = await $http.$get(`https://api.nuxtjs.dev/posts/${params.id}`)
-  //     return { post }
-  //   },
 }
 </script>
 
