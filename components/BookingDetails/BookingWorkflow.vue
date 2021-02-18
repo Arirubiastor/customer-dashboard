@@ -29,7 +29,7 @@
                     itemWorkflow.accomplishedDate != ''
                   "
                 >
-                  Actual Date:<br />{{ itemWorkflow.accomplishedDate }}
+                  Actual Date: <b>{{ itemWorkflow.accomplishedDate }}</b>
                 </b-col>
                 <b-col class="text-left" v-else
                   >Actual Date: {{ emptyString }}</b-col
@@ -49,11 +49,14 @@
                   <b-list-group>
                     <b-list-group-item>
                       <b-row>
-                        <b-col class="font-weight-bold pl-1 pl-md-4"
+                        <b-col class="font-weight-bold pl-1 pl-md-4 pr-md-0"
                           >Status</b-col
                         >
-                        <b-col class="font-weight-bold pl-0"
+                        <b-col class="font-weight-bold pl-0 pr-md-0"
                           >Planned Date</b-col
+                        >
+                        <b-col class="actualDate-extraColumn font-weight-bold pl-0" style="display: none;"
+                          >Actual Date</b-col
                         >
                       </b-row>
                     </b-list-group-item>
@@ -65,17 +68,26 @@
                       :key="index"
                     >
                       <b-row>
+                        <!-- alarmDate = planned date, accomplishedDate = actual date -->
                         <b-col class="pl-1 pl-md-4">
                           {{ itemStatusVerbose.statusVerbose }}</b-col
                         >
                         <b-col
+                          v-if="
+                            itemStatusVerbose.alarmDate != null &&
+                            itemStatusVerbose.alarmDate != ''
+                          "
+                          >{{ itemStatusVerbose.alarmDate }}
+                        </b-col>
+                        <b-col v-else>{{ emptyString }}</b-col>
+                        <b-col class="actualDate-extraColumn" style="display: none;"
                           v-if="
                             itemStatusVerbose.accomplishedDate != null &&
                             itemStatusVerbose.accomplishedDate != ''
                           "
                           >{{ itemStatusVerbose.accomplishedDate }}
                         </b-col>
-                        <b-col v-else>{{ emptyString }}</b-col>
+                        <b-col v-else class="actualDate-extraColumn" style="display: none;">{{ emptyString }}</b-col>
                         <b-button
                           v-b-toggle="'collapse-' + index"
                           @click="
@@ -264,6 +276,9 @@ export default {
 @media (min-width: 768px) {
   .workflow__container {
     margin-bottom: 6rem !important;
+  }
+  .actualDate-extraColumn {
+    display: block !important;
   }
 }
 </style>
