@@ -39,6 +39,15 @@ export default {
     const data = await response.json();
     console.log((JSON.parse(data.JsonBooking)))
     this.bookingData = JSON.parse(data.JsonBooking);
+
+    // if (uuidBooking === undefined) {
+    //   throw new Error('ERRORSOTE: Booking not found')
+    // }
+    if (data.JsonBooking === null) {
+      console.log('otro error')
+      // throw new Error('Booking not found test')
+      this.$nuxt.context.response.statusCode = 404
+    }
   },
 };
 </script>
