@@ -18,8 +18,8 @@
               variant="primary"
               class="button-accordion"
             >
-              <b-row>
-                <b-col cols="12" class="text-left">{{
+              <b-row class="d-flex flex-row">
+                <b-col class="text-left col-12 col-md-8">{{
                   itemWorkflow.stageVerbose
                 }}</b-col>
                 <b-col
@@ -47,15 +47,15 @@
                 <!-- {{ itemWorkflow.steps }}   -->
                 <div>
                   <b-list-group>
-                    <b-list-group-item>
+                    <b-list-group-item class="table-fields">
                       <b-row>
                         <b-col class="font-weight-bold pl-1 pl-md-4 pr-md-0"
                           >Status</b-col
                         >
-                        <b-col class="font-weight-bold pl-0 pr-md-0"
+                        <b-col class="font-weight-bold pl-0 pr-md-0 ml-md-5"
                           >Planned Date</b-col
                         >
-                        <b-col class="actualDate-extraColumn font-weight-bold pl-0" style="display: none;"
+                        <b-col class="actualDate-extraColumn font-weight-bold pl-0 ml-md-4" style="display: none;"
                           >Actual Date</b-col
                         >
                       </b-row>
@@ -63,23 +63,23 @@
                   </b-list-group>
 
                   <b-list-group>
-                    <b-list-group-item
+                    <b-list-group-item class="table__first-level"
                       v-for="(itemStatusVerbose, index) in itemWorkflow.steps"
                       :key="index"
                     >
                       <b-row>
                         <!-- alarmDate = planned date, accomplishedDate = actual date -->
-                        <b-col class="pl-1 pl-md-4">
+                        <b-col class="table__second-level-width pl-1 pl-md-4 ml-2 ml-md-0">
                           {{ itemStatusVerbose.statusVerbose }}</b-col
                         >
-                        <b-col
+                        <b-col class="table__second-level"
                           v-if="
                             itemStatusVerbose.alarmDate != null &&
                             itemStatusVerbose.alarmDate != ''
                           "
                           >{{ itemStatusVerbose.alarmDate }}
                         </b-col>
-                        <b-col v-else>{{ emptyString }}</b-col>
+                        <b-col class="table__second-level" v-else>{{ emptyString }}</b-col>
                         <b-col class="actualDate-extraColumn" style="display: none;"
                           v-if="
                             itemStatusVerbose.accomplishedDate != null &&
@@ -87,7 +87,7 @@
                           "
                           >{{ itemStatusVerbose.accomplishedDate }}
                         </b-col>
-                        <b-col v-else class="actualDate-extraColumn" style="display: none;">{{ emptyString }}</b-col>
+                        <b-col class="actualDate-extraColumn" style="display: none;" v-else>{{ emptyString }}</b-col>
                         <b-button
                           v-b-toggle="'collapse-' + index"
                           @click="
@@ -121,7 +121,7 @@
                         </b-button>
                       </b-row>
                       <b-row>
-                        <b-col class="p-0">
+                        <b-col class="p-0 table-collapse mt-2">
                           <b-collapse :id="'collapse-' + index">
                             <b-card no-body>
                               <b-list-group>
@@ -132,8 +132,15 @@
                                   :key="index"
                                 >
                                   <b-row>
+                                    <b-icon
+                                      icon="arrow-90deg-down"
+                                      rotate="270"
+                                      aria-label="Show Details"
+                                      class="mr-2 mr-md-2 ml-1 ml-md-3"
+                                      name="icon"
+                                    ></b-icon>
                                     <b-col
-                                      class="pl-0 pl-md-3"
+                                      class="pl-0 pl-md-2"
                                       v-if="
                                         itemStepVerbose.stepVerbose != null &&
                                         itemStepVerbose.stepVerbose != ''
@@ -142,7 +149,7 @@
                                       {{ itemStepVerbose.stepVerbose }}
                                     </b-col>
                                     <b-col v-else>{{ emptyString }}</b-col>
-                                    <b-col
+                                    <b-col class="table__third-level"
                                       v-if="
                                         itemStepVerbose.alarmDate != null &&
                                         itemStepVerbose.alarmDate != ''
@@ -150,7 +157,17 @@
                                     >
                                       {{ itemStepVerbose.alarmDate }}
                                     </b-col>
-                                    <b-col v-else>{{ emptyString }}</b-col>
+                                    <b-col class="table__third-level" v-else>{{ emptyString }}</b-col>
+
+                                    <b-col class="actualDate-extraColumn__third-level" style="display: none;"
+                                      v-if="
+                                        itemStepVerbose.accomplishedDate != null &&
+                                        itemStepVerbose.accomplishedDate != ''
+                                      "
+                                    >
+                                      {{ itemStepVerbose.accomplishedDate }}
+                                    </b-col>
+                                    <b-col class="actualDate-extraColumn__third-level" style="display: none;" v-else>{{ emptyString }}</b-col>
                                   </b-row>
                                 </b-list-group-item>
                               </b-list-group>
@@ -160,62 +177,6 @@
                       </b-row>
                     </b-list-group-item>
                   </b-list-group>
-
-                  <!-- <table class="table">
-                      <thead>
-                        <tr>
-                          <th scope="col">Status Verbose</th>
-                          <th scope="col">Alarm Date</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <tr
-                          v-for="(itemStatusVerbose, index) in itemWorkflow.steps"
-                          :key="index"
-                        >
-                          <td>{{ itemStatusVerbose.statusVerbose }}</td>
-                          <td>{{ itemStatusVerbose.alarmDate }}</td>
-                          <b-button
-                            block
-                            class="p-3 font-weight-bold text-left"
-                            :class="visibleStepVerbose ? null : 'collapsed'"
-                            :aria-expanded="
-                            visibleStepVerbose ? 'true' : 'false'"
-                            aria-controls="collapse-stepVerbose"
-                            @click="visibleStepVerbose = !visibleStepVerbose"
-                          >
-                            <b-icon
-                              v-if="!visibleStepVerbose"
-                              icon="plus-square"
-                              aria-label="Show Details"
-                              class="mr-0"
-                            ></b-icon>
-                            <b-icon
-                              v-else
-                              icon="dash-square"
-                              aria-label="Hide Details"
-                              class="mr-0"
-                            ></b-icon>
-                          </b-button>
-                          <b-collapse
-                            id="collapse-stepVerbose"
-                            v-model="visibleStepVerbose"
-                          >
-                            <div>
-                              <b-list-group>
-                                <b-list-group-item v-for="itemStepVerbose in itemStatusVerbose.steps" :key="itemStepVerbose">
-                                  <b-row>
-                                    <b-col>{{ itemStepVerbose.stepVerbose }}</b-col>
-                                    <b-col>{{ itemStepVerbose.alarmDate }}</b-col>
-                                  </b-row>
-                                </b-list-group-item>
-                              </b-list-group>
-                            </div>
-                          </b-collapse>
-                        </tr>
-                      </tbody>
-                  </table> -->
-                  <!-- TEST -->
                 </div>
               </b-card-text>
             </b-card-body>
@@ -237,23 +198,22 @@ export default {
   data() {
     return {
       fields: ["statusVerbose", "alarmDate", "details"],
-      // items: [
-      //   { status_verbose: "Shipping advice", alarm_date: "---" },
-      //   { status_verbose: "Shipping advice", alarm_date: "---" },
-      // ],
       fieldsTest: ["stepVerbose", "alarmDate"],
       visibleStageSteps: false,
       visibleStepVerbose: false,
       emptyString: "----",
-      // '0': false,
-      // '1': false,
-      // visibleBkgContenedor: false,
     };
   },
 };
 </script>
 
 <style lang="scss">
+$primary: #cc092f ;
+
+.accordion {
+  font-size: 14px;
+}
+
 .p-1 {
   padding: 0rem !important;
 }
@@ -261,6 +221,7 @@ export default {
 .button-accordion {
   background-color: transparent;
   color: #212529; // gray-900
+  font-size: 15px;
 }
 
 // .button-accordion:hover {
@@ -273,6 +234,40 @@ export default {
   margin-bottom: 2rem;
 }
 
+.table-fields {
+  // background-color: rgba($primary, .3)
+  // background-color: rgb(223, 221, 221);
+  background-color: #dee2e6;
+}
+
+.table__first-level {
+  padding: 0.5rem 13px; 
+}
+
+.table__second-level {
+  margin-left: 2.8rem;
+}
+
+.table__third-level {
+  margin-left: 4px;
+}
+
+.actualDate-extraColumn {
+  margin-left: 1.3rem;
+}
+
+.actualDate-extraColumn__third-level {
+  margin-left: -1px;
+}
+
+.table-collapse {
+  margin-bottom: -10px;
+}
+
+.table__second-level-width {
+    width: 135px;
+  }
+
 @media (min-width: 768px) {
   .workflow__container {
     margin-bottom: 6rem !important;
@@ -280,5 +275,17 @@ export default {
   .actualDate-extraColumn {
     display: block !important;
   }
+  .actualDate-extraColumn__third-level {
+    display: block !important;
+  }
+  .accordion {
+  font-size: 16px;
+}
+.button-accordion {
+  font-size: 16px;
+}
+.table__third-level {
+  margin-left: -8px;
+}
 }
 </style>

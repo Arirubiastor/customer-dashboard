@@ -1,13 +1,13 @@
 <template>
   <div>
-    <b-list-group>
-      <b-list-group-item>
+    <b-list-group class="details-table">
+      <!-- <b-list-group-item>
         <b-row>
           <b-col cols="md-4" class="font-weight-bold">Route Type</b-col>
           <b-col v-if="statusData.type != null && statusData.type != ''">{{ statusData.type }}</b-col>
           <b-col v-else>{{ emptyString }}</b-col>
         </b-row>
-      </b-list-group-item>
+      </b-list-group-item> -->
       <b-list-group-item>
         <b-row>
           <b-col cols="md-4" class="font-weight-bold">Main Transport</b-col>
@@ -73,7 +73,7 @@
           <b-col>
             <b-button
               block
-              class="show-details__button p-3 font-weight-bold text-left"
+              class="show-details__button py-1 px-3 font-weight-bold text-left table-fields"
               :class="visibleTramoBkg ? null : 'collapsed'"
               :aria-expanded="visibleTramoBkg ? 'true' : 'false'"
               aria-controls="collapse-tramoBkg"
@@ -100,7 +100,7 @@
                   <b-list-group-item>
                     <b-row>
                       <b-col cols="md-4" class="font-weight-bold"
-                        >Route Mode</b-col
+                        >Transport Mode</b-col
                       >
                       <b-col v-if="itemTramoBkg.routeType != null && itemTramoBkg.routeType != ''">{{ itemTramoBkg.routeType }}</b-col>
                       <b-col v-else>{{ emptyString }}</b-col>
@@ -183,7 +183,7 @@
                   </b-list-group-item>
                   <b-button
                     v-b-toggle="'collapse-2'"
-                    class="show-details__button m-0 p-3 font-weight-bold text-left"
+                    class="show-details__button m-0 py-1 px-3 font-weight-bold text-left table-fields"
                     @click="visibleBkgContenedor = !visibleBkgContenedor"
                     v-if="bkgContenedor == null"
                     >Container Details
@@ -220,8 +220,15 @@
                       <b-list-group>
                         <b-list-group-item>
                           <b-row>
-                            <b-col cols="md-4" class="font-weight-bold"
-                              >Quantity</b-col
+                            <b-col cols="md-4" class="font-weight-bold pl-1"
+                              >
+                              <b-icon
+                              icon="chevron-compact-right"
+                              aria-label="Show Details"
+                              class="mr-0 mr-md-0 ml-1 ml-md-1 mt-1"
+                              name="icon"
+                            ></b-icon>
+                            Quantity</b-col
                             >
                             <b-col v-if="itemBkgContenedor.qty != null && itemBkgContenedor.qty != ''">{{ itemBkgContenedor.qty }}</b-col>
                             <b-col v-else>{{ emptyString }}</b-col>
@@ -229,8 +236,14 @@
                         </b-list-group-item>
                         <b-list-group-item>
                           <b-row>
-                            <b-col cols="md-4" class="font-weight-bold"
-                              >Type</b-col
+                            <b-col cols="md-4" class="font-weight-bold pl-1"
+                              ><b-icon
+                              icon="chevron-compact-right"
+                              aria-label="Show Details"
+                              class="mr-0 mr-md-0 ml-1 ml-md-1 mt-1"
+                              name="icon"
+                            ></b-icon>
+                              Type</b-col
                             >
                             <b-col v-if="itemBkgContenedor.type != null && itemBkgContenedor.type != ''">{{ itemBkgContenedor.type }}</b-col>
                             <b-col v-else>{{ emptyString }}</b-col>
@@ -238,8 +251,14 @@
                         </b-list-group-item>
                         <b-list-group-item>
                           <b-row>
-                            <b-col cols="md-4" class="font-weight-bold"
-                              >Marks</b-col
+                            <b-col cols="md-4" class="font-weight-bold pl-1"
+                              ><b-icon
+                              icon="chevron-compact-right"
+                              aria-label="Show Details"
+                              class="mr-0 mr-md-0 ml-1 ml-md-1 mt-1"
+                              name="icon"
+                            ></b-icon>
+                              Marks</b-col
                             >
                             <b-col v-if="itemBkgContenedor.marks != null && itemBkgContenedor.marks != ''">{{ itemBkgContenedor.marks }}</b-col>
                             <b-col v-else>{{ emptyString }}</b-col>
@@ -247,8 +266,14 @@
                         </b-list-group-item>
                         <b-list-group-item>
                           <b-row>
-                            <b-col cols="md-4" class="font-weight-bold"
-                              >Gross Weight</b-col
+                            <b-col cols="md-4" class="font-weight-bold pl-1"
+                              ><b-icon
+                              icon="chevron-compact-right"
+                              aria-label="Show Details"
+                              class="mr-0 mr-md-0 ml-1 ml-md-1 mt-1"
+                              name="icon"
+                            ></b-icon>
+                              Gross Weight</b-col
                             >
                             <b-col v-if="itemBkgContenedor.grossWeight != null && itemBkgContenedor.grossWeight != ''">{{ itemBkgContenedor.grossWeight }}</b-col>
                             <b-col v-else>{{ emptyString }}</b-col>
@@ -256,8 +281,14 @@
                         </b-list-group-item>
                         <b-list-group-item>
                           <b-row>
-                            <b-col cols="md-4" class="font-weight-bold"
-                              >Volume</b-col
+                            <b-col cols="md-4" class="font-weight-bold pl-1"
+                              ><b-icon
+                              icon="chevron-compact-right"
+                              aria-label="Show Details"
+                              class="mr-0 mr-md-0 ml-1 ml-md-1 mt-1"
+                              name="icon"
+                            ></b-icon>
+                              Volume</b-col
                             >
                             <b-col v-if="itemBkgContenedor.volume != null && itemBkgContenedor.volume != ''">{{ itemBkgContenedor.volume }}</b-col>
                             <b-col v-else>{{ emptyString }}</b-col>
@@ -265,8 +296,14 @@
                         </b-list-group-item>
                         <b-list-group-item>
                           <b-row>
-                            <b-col cols="md-4" class="font-weight-bold"
-                              >Description of Goods</b-col
+                            <b-col cols="md-4" class="font-weight-bold pl-1"
+                              ><b-icon
+                              icon="chevron-compact-right"
+                              aria-label="Show Details"
+                              class="mr-0 mr-md-0 ml-1 ml-md-1 mt-1"
+                              name="icon"
+                            ></b-icon>
+                              Description of Goods</b-col
                             >
                             <b-col
                               v-if="itemBkgContenedor.descriptionGoodsCont != null && itemBkgContenedor.descriptionGoodsCont != ''">{{ itemBkgContenedor.descriptionGoodsCont }}
@@ -318,5 +355,12 @@ export default {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+}
+
+.details-table {
+  .list-group-item {
+  padding-top: .25rem;
+  padding-bottom: .25rem;
+  }
 }
 </style>
