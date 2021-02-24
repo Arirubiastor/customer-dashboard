@@ -25,42 +25,64 @@ export default {
     return {bookingData:data}
   },
 
-//  beforeCreate() {
-//     let identityBooking = this.$route.query.identityBooking
-//     console.log('mounted' + identityBooking);
+// watchQuery: true,
+// watch: {
+//     '$route.query': '$fetch'
 //   },
 
    async created() {
     // GET request using fetch with async/await
     
     let uuidBooking = this.$route.query.uuidBooking;
-    // let identityBooking = this.$route.query.identityBooking;
     let nombreCliente = this.$route.query.nombreCliente;
-    const response = await fetch(
+
+    // try {
+      const response = await fetch(
       `https://e7pmpg7z85.execute-api.us-west-2.amazonaws.com/prod/obtienedatosbooking?uuidBooking=${uuidBooking}&nombreCliente=${nombreCliente}`
-    );
+    )
+
     const data = await response.json();
-    console.log((JSON.parse(data.JsonBooking)))
+    console.log((JSON.parse(data.JsonBooking)));
     this.bookingData = JSON.parse(data.JsonBooking);
 
-    // if (data.identityBooking === this.$route.query.identityBooking) {
-    //   this.data = data
-    // } else {
-    //   // set status code on server and
-    //   if (process.server) {
-    //     this.$nuxt.context.response.statusCode = 404
-    //   }
-    //   // use throw new Error()
-    //   throw new Error('Booking not found')
+    // } catch (error) {
+    //   context.error(error)
     // }
 
-    if (response.ok) {
-      return response;
+    
+    
+    if (response.uuidBooking === this.$route.query.uuidBooking && response.nombreCliente === this.$route.query.nombreCliente) {
+      this.response = response
     } else {
-      throw Error(`Request rejected with status ${res.status}`);
+      // set status code on server and
+      if (process.server) {
+        this.$nuxt.context.response.statusCode = 404
+      }
+      // use throw new Error()
+      throw new Error('Booking not found')
+      // this.$nuxt.error({ message: 'Error test'})
     }
-    // .catch(console.error)
+
+  //   if(!response){
+  //   return error({statusCode: 404, message: 'Not found'})
+  // }
+
+
+    // if (response.ok) {
+    //   return response;
+    // } else {
+    //   throw Error(`Request rejected with status ${res.status}`);
+    // }
   },
+
+  // async validate({ params, query, store }) {
+  //   // Throws a 500 internal server error with custom message
+  //   throw new Error('Under Construction!')
+  // }
+
+  asyncData({ query }) {
+    console.log('query' + query);
+  }
 }
 </script>
 

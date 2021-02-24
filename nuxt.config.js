@@ -61,5 +61,9 @@ export default {
     babel: {
       compact: true,
     }
-  }
+  },
+  // Fix error page on deployment
+  // generate: {
+  //   fallback: true,
+  // },
 }

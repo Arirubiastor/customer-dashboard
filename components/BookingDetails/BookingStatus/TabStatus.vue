@@ -2,7 +2,7 @@
   <div>
     <div class="status__container d-inline">
       <!------- Hide card on screens smaller than md / Horizontal version  ------->
-      <b-card class="status__container text-center pt-lg-5 d-none d-md-block">
+      <b-card class="status__container text-center pt-lg-5 pb-1 pb-md-5 d-none d-md-block">
         <div v-for="(stage, index) in workflow" :key="index" class="d-inline">
           <!-- Dotted-line left -->
           <div class="d-inline ml-1 mr-1" v-if="index != 0">
@@ -55,20 +55,13 @@
             >
             <template #title>{{ popoverTitle }}</template>
               Planned Date:<br />
-              <b v-if="stage.accomplishedDate == ''">----</b>
-              <b>{{ stage.accomplishedDate }}</b>
-              <br>
-              <!-- <p v-if="stage.alarmDate != null && stage.alarmDate != ''">
-                Alarm Date:<br /><b>{{ stage.alarmDate }}</b>
-              </p>
-              <p v-else>
-                <br /><b>{{ noAlarmDate }}</b>
-              </p> -->
-              Actual Date:<br />
               <b v-if="stage.alarmDate == ''">----</b>
               <b v-else>{{ stage.alarmDate }}</b>
+              <br>
+              Actual Date:<br />
+              <b v-if="stage.accomplishedDate == ''">----</b>
+              <b v-else>{{ stage.accomplishedDate }}</b>
             </b-popover>
-            <!-- Porpover for completed stage -->
             <b-popover
               v-else
               :target="'popover-target-' + index"
@@ -79,11 +72,11 @@
             >
               <template #title>{{ popoverTitle }}</template>
               Planned Date:<br />
-              <b class="color-completed__popover" v-if="stage.accomplishedDate == ''">----</b>
-              <b>{{ stage.accomplishedDate }}
-              </b> Actual Date:<br />
               <b class="color-completed__popover" v-if="stage.alarmDate == ''">----</b>
-              <b v-else>{{ stage.alarmDate }}</b>
+              <b>{{ stage.alarmDate }}<br />
+              </b> Actual Date:<br />
+              <b class="color-completed__popover" v-if="stage.accomplishedDate == ''">----</b>
+              <b v-else>{{ stage.accomplishedDate }}</b>
               
             </b-popover>
           </div>
@@ -169,10 +162,8 @@
             <b-col cols="8" class="pr-0 pl-0 text-left">
               <div v-for="(stage, index) in workflow" :key="index" class="workflow_text pb-3">
                 <p class="stage__title">{{ stage.stageVerbose }}</p>
-                <!-- <p class="stage__title">Alarm Date:<br>{{ stage.alarmDate }}</p> -->
-                <p v-if="stage.accomplishedDate == '' ||
-                        stage.accomplishedDate == null" class="stage__title">On its way!</p>
-                <p v-else class="stage__title">Actual Date:<br>{{ stage.accomplishedDate }}</p>
+                <p v-if="stage.accomplishedDate != ''">Actual Date:<br>{{ stage.accomplishedDate }}</p>
+                <p v-else>Actual Date:<br>----</p>
               </div>
             </b-col>
           </b-row>
@@ -247,7 +238,7 @@ export default {
 <style lang="scss">
 .status__container {
   padding-top: 5rem;
-  padding-bottom: 3.2rem;
+  // padding-bottom: 3.2rem;
 }
 
 .stage__title {
@@ -255,6 +246,7 @@ export default {
   right: 2rem;
   font-size: 1.2rem;
   font-family: 'Abel', sans-serif;
+  margin-bottom: 2px;
 }
 
 .status__progress {

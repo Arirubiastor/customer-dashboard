@@ -116,7 +116,7 @@
               class="d-inline border border-primary"
               v-model="bookingValidation"
               placeholder="Enter the last 5 digits of the booking number"
-              type="text"
+              type="number"
               max="5"
             ></b-form-input>
             <!-- to="/booking-details"
@@ -135,6 +135,7 @@
               class="mt-4 mb-4 ml-md-4 mt-md-0"
               @click.native="checkBooking()"
               >Validate</b-button>
+              {{ bookingData.booking }}
           </form>
         </b-col>
       </b-row>
@@ -159,6 +160,7 @@ export default {
       bookingValidation: "",
       workflow: this.workflow,
       arrayDates: [],
+      emptyString: '---',
     };
   },
   computed: {
@@ -178,8 +180,16 @@ export default {
         alert('done!')
       }
     }
-
   },
+
+  // Booking Validation
+  watch: {
+    booking(value) {
+      this.booking = value;
+      this.validateBooking(value);
+    }
+  },
+
 };
 </script>
 
