@@ -51,17 +51,18 @@ export default {
 
     
     
-    if (response.uuidBooking === this.$route.query.uuidBooking && response.nombreCliente === this.$route.query.nombreCliente) {
-      this.response = response
-    } else {
-      // set status code on server and
-      if (process.server) {
-        this.$nuxt.context.response.statusCode = 404
-      }
-      // use throw new Error()
-      throw new Error('Booking not found')
-      // this.$nuxt.error({ message: 'Error test'})
-    }
+    // if (response.uuidBooking === this.$route.query.uuidBooking && response.nombreCliente === this.$route.query.nombreCliente) {
+    //   this.response = response
+    // } else {
+    //   // set status code on server and
+    //   if (process.server) {
+    //     this.$nuxt.context.response.statusCode = 404
+    //   }
+    //   // use throw new Error()
+    //   throw new Error('Booking not found')
+    //   // this.$nuxt.error({ message: 'Error test'})
+    // }
+
 
   //   if(!response){
   //   return error({statusCode: 404, message: 'Not found'})

@@ -169,32 +169,6 @@
           </b-row>
         </b-container>
       </b-card>
-
-      <!-- <b-icon
-        icon="three-dots"
-        variant="primary"
-        style="width: 30px; height: 50px"
-      ></b-icon>
-      <b-icon
-        icon="dash"
-        variant="primary"
-        style="width: 50px; height: 50px;"
-      ></b-icon>
-      <b-icon
-        icon="arrow-right-circle"
-        variant="primary"
-        style="width: 50px; height: 50px"
-      ></b-icon>
-      <b-icon
-        icon="dash-circle"
-        variant="primary"
-        style="width: 50px; height: 50px"
-      ></b-icon>
-      <b-icon
-        icon="circle"
-        variant="primary"
-        style="width: 50px; height: 50px"
-      ></b-icon> -->
     </div>
   </div>
 </template>
@@ -218,7 +192,6 @@ export default {
       show: true,
       noAlarmDate: "No alarm date yet",
       animate: true,
-      // guidePopover: "Click icon to see details",
       popoverTitle: "Schedule"
     };
   },
