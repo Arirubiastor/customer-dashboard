@@ -1,47 +1,38 @@
 <template>
   <div>
-    <b-container class="test mt-4 mt-md-5" align-v="center">
-      <b-row class="">
-        <b-col align-self="center mt-md-4">
-          <!-- <b-card class="card__login border border-primary">
-            <b-card-header align="center" class="font-weight-bold h5 mt-0 pt-0"
-              >Current Status</b-card-header
-            >
-            <b-card-text class="mt-3" align="center">
-              <div v-for="(stage, index) in workflow" :key="index">
-                <div v-if="stage.accomplishedDate != null">
-                  {{ index }} {{ stage.stageVerbose }} {{ stage.accomplishedDate }}
-                </div>
-                <hr />
-              </div>
-              This shipment has reached the milestone "steps verbose ultima
-              fecha" on "ultima fecha" This shipment is on its way to the
-              milestone "first milestone"
-            </b-card-text>
-          </b-card> -->
-          
-          <!-- <b-card class="card__login border border-primary mt-4">
-            <b-card-header align="center" class="font-weight-bold h5 pt-0"
-              >Next Milestone</b-card-header
-            >
-            <b-card-text align="center" class="mt-3">
-              Our following step towards shipment delivery is "wotkstep con
-              alarma menor de todas" planned for "fecha"
-              <div v-for="stage in workflow" :key="stage">
-                {{ workflow.alarmDate }}
-              </div>
-            </b-card-text>
-          </b-card> -->
-          
-          <b-list-group class="mb-3 mb-md-4">
-              <!-- <h5>El título de esta tabla</h5> -->
-              <b-list-group-item>
-                <b-row>
-              <b-col cols="md-4" class="font-weight-bold">Route Type</b-col>
-              <b-col v-if="bookingData.type != null && bookingData.type != ''">{{ bookingData.type }}</b-col>
-              <b-col v-else>{{ emptyString }}</b-col>
-            </b-row>
-              </b-list-group-item>
+    <b-container class="mt-4 mt-md-5" align-v="center">
+      <h1 class="index__title text-center">Track &amp; Trace</h1>
+      <p class="text__input mt-0 mt-md-3 p-2 text-center">
+        {{ formInstructions1 }}
+      </p>
+          <form class="booking__form mb-5 d-md-inline-flex text-center">
+            <div class="group-input d-flex flex-column">
+              <b-form-input
+              class="booking-input__form d-inline border border-primary"
+              v-model="bookingValidation"
+              :placeholder="formPlaceholder"
+              type="number"
+              max="5"
+              size="lg"
+            ></b-form-input>
+              <b-form-text class="form__help" id="input-live-help">{{ formHelp }}</b-form-text>
+            </div>
+            
+              <b-button 
+              :to="`/booking-details/?uuidBooking=${this.$route.query.uuidBooking}&nombreCliente=SchryverPruebas`"
+              tag="nuxt-link"
+              variant="outline-primary"
+              class="mt-4 mb-4 ml-md-4 mt-md-0 mb-md-4"
+              size="lg"
+              @click.native="checkBooking()"
+              >Validate</b-button>
+          </form>
+
+          <TabStatus class="mt-md-4" :workflow="bookingData.workflow" />
+
+      <b-row>
+        <b-col align-self="center mt-3 mt-md-4">
+          <b-list-group class="details-table mb-3 mb-md-4">
           <b-list-group-item>
         <b-row>
           <b-col cols="md-4" class="font-weight-bold">Main Transport</b-col>
@@ -104,39 +95,7 @@
       </b-list-group-item>
             </b-list-group>
 
-          <TabStatus :workflow="bookingData.workflow" />
           
-          <!-- <b-card class="border border-primary mt-4"> -->
-          <p class="text__input mt-3 mt-md-4 p-2">
-            To see more information about this shipment enter the last 5 digits
-            of the booking number
-          </p>
-          <form class="d-md-inline-flex w-100 mb-5">
-            <b-form-input
-              class="d-inline border border-primary"
-              v-model="bookingValidation"
-              placeholder="Enter the last 5 digits of the booking number"
-              type="number"
-              max="5"
-            ></b-form-input>
-            <!-- to="/booking-details"
-            tag="nuxt-link" -->
-            <!-- <b-button 
-              to="/booking-details"
-              tag="nuxt-link"
-              variant="outline-primary"
-              class="mt-4 mb-4 ml-md-4 mt-md-0"
-              @click.native="checkBooking()"
-              >Validate</b-button> -->
-              <b-button 
-              :to="`/booking-details/?uuidBooking=${this.$route.query.uuidBooking}&nombreCliente=SchryverPruebas`"
-              tag="nuxt-link"
-              variant="outline-primary"
-              class="mt-4 mb-4 ml-md-4 mt-md-0"
-              @click.native="checkBooking()"
-              >Validate</b-button>
-              {{ bookingData.booking }}
-          </form>
         </b-col>
       </b-row>
     </b-container>
@@ -161,6 +120,10 @@ export default {
       workflow: this.workflow,
       arrayDates: [],
       emptyString: '---',
+      formInstructions: 'To see more information about this shipment enter the last 5 digits of the booking number',
+      formInstructions1: 'Please input your booking number',
+      formPlaceholder: 'ej. 12345',
+      formHelp: 'Enter the last 5 digits of the booking number',
     };
   },
   computed: {
@@ -198,11 +161,43 @@ export default {
 //   height: calc(100vh - 176px);
 // }
 
+.index__title {
+    font-size: 26px;
+  }
+
 .text__input {
-  font-weight: 500;
+  // font-weight: 500;
+  font-size: 20px;
 }
 
-.card__login {
-  // max-width: 800px;
+.booking__form {
+  margin: auto !important;
+  justify-content: center;
+  width: 100%;
+
+  // display: flex;
+  // flex-direction: column;
+}
+
+.booking-input__form {
+  max-width: 17rem;
+}
+
+.form__help {
+  display: inline-block;
+}
+
+.group-input {
+  align-items: center;
+}
+
+@media (min-width: 768px) {
+  .index__title {
+    font-size: 42px;
+  }
+  .text__input {
+  // font-weight: 500;
+  font-size: 22px;
+}
 }
 </style>

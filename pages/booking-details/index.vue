@@ -44,7 +44,7 @@ export default {
     //   throw new Error('ERRORSOTE: Booking not found')
     // }
     if (data.JsonBooking === null) {
-      console.log('otro error')
+      console.log('Booking is empty')
       // throw new Error('Booking not found test')
       this.$nuxt.context.response.statusCode = 404
     }
