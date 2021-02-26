@@ -33,17 +33,17 @@
               <b-alert
                 :show="dismissCountDown"
                 dismissible
-                variant="warning"
+                variant="danger"
                 @dismissed="dismissCountDown=0"
                 @dismiss-count-down="countDownChanged"
               >
-                <p>This alert will dismiss after {{ errorBooking }} seconds...</p>
-                <b-progress
+                <p>The booking number is not valid, please try again</p>
+                <!-- <b-progress
                   variant="warning"
                   :max="dismissSecs"
                   :value="dismissCountDown"
                   height="4px"
-                ></b-progress>
+                ></b-progress> -->
               </b-alert>
           <!-- validation: {{ form.bookingValidation }}
           <div class="input-group-addon" v-text="(inputMax - form.bookingValidation.length)"></div>
@@ -152,8 +152,9 @@ export default {
       inputMax: 5,
       bookingLast: '',
       errorBooking: '',
-      dismissSecs: 10,
+      dismissSecs: 5,
       dismissCountDown: 0,
+      showDismissibleAlert: false,
     };
   },
   computed: {
@@ -175,7 +176,8 @@ export default {
         this.$router.push(`/booking-details/?uuidBooking=${this.$route.query.uuidBooking}&nombreCliente=SchryverPruebas`);
       }
       else {
-        this.errorBooking = 'Sorry, the booking number is incorrect'
+        // this.errorBooking = 'The booking number is not valid, please try again'
+        this.dismissCountDown = this.dismissSecs
       }
     },
   },
@@ -224,6 +226,14 @@ export default {
 
 .group-input {
   align-items: center;
+}
+.alert-danger {
+  width: 30rem;
+  margin: auto;
+  margin-top: 1rem;
+  p {
+    margin-bottom: 0;
+  }
 }
 
 @media (min-width: 768px) {

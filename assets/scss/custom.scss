@@ -1,7 +1,8 @@
 // custom.scss
 
 // All of your custom SCSS variables go first
-$primary:        #cc092f ; // Schryver
+// $primary:        #cc092f ; // Schryver
+$primary:        #57cc09 ;
 // $primary:        #8400ff ;
 
 // $primary:       #585d6b ;
@@ -30,6 +31,8 @@ $body-color: #343a40 !default;
 // Cards
 
 $card-cap-bg:                       white !default;
+
+//Alert
 
 //then bootstrap & bootstrap-vue should be added after 
 //so that they inherit the custom SCSS variables
