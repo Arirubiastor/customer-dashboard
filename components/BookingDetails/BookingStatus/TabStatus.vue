@@ -230,7 +230,7 @@ export default {
   height: 118px;
 }
 
-.color-completed__popover {
-  color:  #cc092f; // has to be $primary
-}
+// .color-completed__popover {
+//   color:  #cc092f; // has to be $primary
+// }
 </style>
