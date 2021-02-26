@@ -280,6 +280,7 @@ $primary: #cc092f ;
   }
   .accordion {
   font-size: 16px;
+  
 }
 .button-accordion {
   font-size: 16px;
