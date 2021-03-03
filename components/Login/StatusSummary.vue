@@ -1,11 +1,32 @@
 <template>
   <div>
     <b-container class="mt-4 mt-md-5" align-v="center">
-      <h1 class="index__title text-center">Track &amp; Trace</h1>
-      <p class="text__input mt-0 mt-md-3 p-2 text-center">
+      <h1 class="index__title text-center mb-0">Track &amp; Trace</h1>
+      <p class="text__input mt-0 mt-md-3 p-2 text-center mb-0 mb-md-3">
         {{ formInstructions1 }}
       </p>
-          <form class="booking__form mb-5 d-md-inline-flex text-center">
+      <!-- Mobile -->
+          <form class="booking__form form-mobile mb-3 text-left">
+            <div class="group-input d-flex flex-row justify-content-center">
+              <b-form-input
+              class="booking-input__form d-inline border border-primary form-control mr-3"
+              v-model="form.bookingValidation"
+              :placeholder="formPlaceholder"
+              type="text"
+              min="0"
+              max="5"
+              :maxlength="inputMax"
+            ></b-form-input>
+              <b-button 
+              variant="outline-primary"
+              class="mt-1 mb-1"
+              @click="validateBooking()"
+              >Validate</b-button>
+            </div>
+            <b-form-text class="form__help mt-0 mb-4" id="input-live-help">{{ formHelp }}</b-form-text>
+          </form>
+          <!-- Tablet and Desktop -->
+          <form class="booking__form mb-5 d-md-inline-flex text-center" style="display: none;">
             <div class="group-input d-flex flex-column">
               <b-form-input
               class="booking-input__form d-inline border border-primary form-control"
@@ -38,12 +59,6 @@
                 @dismiss-count-down="countDownChanged"
               >
                 <p>The booking number is not valid, please try again</p>
-                <!-- <b-progress
-                  variant="warning"
-                  :max="dismissSecs"
-                  :value="dismissCountDown"
-                  height="4px"
-                ></b-progress> -->
               </b-alert>
           <!-- validation: {{ form.bookingValidation }}
           <div class="input-group-addon" v-text="(inputMax - form.bookingValidation.length)"></div>
@@ -152,8 +167,9 @@ export default {
       inputMax: 5,
       bookingLast: '',
       errorBooking: '',
-      dismissSecs: 5,
+      dismissSecs: 95,
       dismissCountDown: 0,
+
       showDismissibleAlert: false,
     };
   },
@@ -204,7 +220,7 @@ export default {
 
 .text__input {
   // font-weight: 500;
-  font-size: 20px;
+  font-size: 18px;
 }
 
 .booking__form {
@@ -217,7 +233,8 @@ export default {
 }
 
 .booking-input__form {
-  max-width: 17rem;
+  width: 100%;
+  // max-width: 12rem;
 }
 
 .form__help {
@@ -228,9 +245,11 @@ export default {
   align-items: center;
 }
 .alert-danger {
-  width: 30rem;
+  width: 100%;
+  max-width: 29rem;
   margin: auto;
-  margin-top: 1rem;
+  margin-top: 0;
+  margin-bottom: 1rem;
   p {
     margin-bottom: 0;
   }
@@ -243,6 +262,20 @@ export default {
   .text__input {
   // font-weight: 500;
   font-size: 22px;
+}
+.alert-danger {
+  width: 30rem;
+  margin: auto;
+  margin-top: 1rem;
+  p {
+    margin-bottom: 0;
+  }
+}
+.form-mobile {
+  display: none !important;
+}
+.booking-input__form {
+  max-width: 17rem;
 }
 }
 </style>
