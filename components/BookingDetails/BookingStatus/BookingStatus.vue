@@ -5,7 +5,7 @@
         <b-tab title="Status" active>
           <TabStatus :workflow="bookingData.workflow" />
         </b-tab>
-          <b-tab title="Map" disabled v-if="bookingData.latlng !=null && bookingData.latlng != ''" @shown="modalShown">
+          <b-tab title="Map" disabled v-if="bookingData.latlng != null && bookingData.latlng != ''" @shown="modalShown">
           <TabMap :coordsList="bookingData.latlng" :bookingNum="bookingData.booking" />
         </b-tab>
         <b-tab title="Details">

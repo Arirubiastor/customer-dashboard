@@ -2,7 +2,6 @@
   <b-container class="error-container d-flex flex-column align-items-center justify-content-center">
     <div class="text-center p-3">
       <h1 v-if="error.statusCode === 404">Page not found</h1>
-      <h1 v-else-if="statusCode === undefined">We couldn't find any information for this request. test</h1>
       <h1 v-else>We couldn't find any information for this request.</h1>
       <a href="mailto:help@exikhan.com.mx" class="email-link">Get in touch: help@exikhan.com.mx</a>
       <!-- <NuxtLink to="/">Home page</NuxtLink> -->

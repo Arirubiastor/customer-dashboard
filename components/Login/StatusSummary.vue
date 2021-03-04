@@ -137,6 +137,10 @@
         </b-col>
       </b-row>
     </b-container>
+    <!-- <div v-else>
+      ERROR
+      {{ bookingData }}
+    </div> -->
   </div>
 </template>
 
@@ -167,7 +171,7 @@ export default {
       inputMax: 5,
       bookingLast: '',
       errorBooking: '',
-      dismissSecs: 95,
+      dismissSecs: 5,
       dismissCountDown: 0,
 
       showDismissibleAlert: false,

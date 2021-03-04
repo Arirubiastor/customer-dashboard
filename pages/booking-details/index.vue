@@ -1,13 +1,16 @@
 <template>
-  <div>
+<div>
+  <div v-if="bookingData.booking != null && bookingData.booking != ''">
     <TheHeader :bookingData="bookingData" />
     <!-- <h1 class="text-center">Booking Details</h1> -->
     <!-- <b-container>
       <b-button tag="nuxt-link" to="/" variant="outline-primary" class="mb-4">Back to login</b-button>
     </b-container> -->
-    <BookingHeader :bookingData="bookingData" class="mt-4 mt-md-5" />
+    <BookingHeader :bookingData="bookingData" class="mt-4 mt-md-5" v-if="bookingData.booking != null && bookingData.booking != ''" />
     <BookingStatus :bookingData="bookingData" />
     <BookingWorkflow :workflow="bookingData.workflow" />
+  </div>
+  <ErrorBookingInfo v-else />
   </div>
 </template>
 
@@ -37,11 +40,11 @@ export default {
       `https://e7pmpg7z85.execute-api.us-west-2.amazonaws.com/prod/obtienedatosbooking?uuidBooking=${uuidBooking}&nombreCliente=${nombreCliente}`
     );
     const data = await response.json();
-    console.log((JSON.parse(data.JsonBooking)))
+    // console.log((JSON.parse(data.JsonBooking))) //Pruebas
     this.bookingData = JSON.parse(data.JsonBooking);
 
     // if (uuidBooking === undefined) {
-    //   throw new Error('ERRORSOTE: Booking not found')
+    //   throw new Error('ERROR: Booking not found')
     // }
     if (data.JsonBooking === null) {
       console.log('Booking is empty')
@@ -49,5 +52,10 @@ export default {
       this.$nuxt.context.response.statusCode = 404
     }
   },
+
+  // middleware({ store, redirect }) {
+  //   // if statement
+  //   return redirect('/')
+  // }
 };
 </script>
