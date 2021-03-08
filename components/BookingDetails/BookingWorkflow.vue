@@ -23,7 +23,7 @@
                   itemWorkflow.stageVerbose
                 }}</b-col>
                 <b-col
-                  class="text-left"
+                  class="text-left pl-md-2"
                   v-if="
                     itemWorkflow.accomplishedDate != null &&
                     itemWorkflow.accomplishedDate != ''
@@ -31,7 +31,7 @@
                 >
                   Actual Date: <b>{{ itemWorkflow.accomplishedDate }}</b>
                 </b-col>
-                <b-col class="text-left" v-else
+                <b-col class="text-left pl-md-2" v-else
                   >Actual Date: {{ emptyString }}</b-col
                 >
               </b-row>
@@ -52,10 +52,10 @@
                         <b-col class="font-weight-bold pl-1 pl-md-4 pr-md-0"
                           >Status</b-col
                         >
-                        <b-col class="font-weight-bold pl-0 pr-md-0 ml-md-5"
+                        <b-col class="plannedDate-extraColumn font-weight-bold pl-0 pr-md-0 ml-md-4" style="display: none;"
                           >Planned Date</b-col
                         >
-                        <b-col class="actualDate-extraColumn font-weight-bold pl-0 ml-md-4" style="display: none;"
+                        <b-col class="font-weight-bold pl-0 ml-md-3"
                           >Actual Date</b-col
                         >
                       </b-row>
@@ -72,22 +72,22 @@
                         <b-col class="table__second-level-width pl-1 pl-md-4 ml-2 ml-md-0">
                           {{ itemStatusVerbose.statusVerbose }}</b-col
                         >
-                        <b-col class="table__second-level"
+                        <b-col class="table__second-level plannedDate-extraColumn pl-md-3" style="display: none;"
                           v-if="
                             itemStatusVerbose.alarmDate != null &&
                             itemStatusVerbose.alarmDate != ''
                           "
                           >{{ itemStatusVerbose.alarmDate }}
                         </b-col>
-                        <b-col class="table__second-level" v-else>{{ emptyString }}</b-col>
-                        <b-col class="actualDate-extraColumn" style="display: none;"
+                        <b-col class="table__second-level plannedDate-extraColumn pl-md-3" style="display: none;" v-else>{{ emptyString }}</b-col>
+                        <b-col class="pl-3 pl-md-4"
                           v-if="
                             itemStatusVerbose.accomplishedDate != null &&
                             itemStatusVerbose.accomplishedDate != ''
                           "
                           >{{ itemStatusVerbose.accomplishedDate }}
                         </b-col>
-                        <b-col class="actualDate-extraColumn" style="display: none;" v-else>{{ emptyString }}</b-col>
+                        <b-col class="pl-3 pl-md-4" v-else>{{ emptyString }}</b-col>
                         <b-button
                           v-b-toggle="'collapse-' + index"
                           @click="
@@ -159,7 +159,7 @@
                                     </b-col>
                                     <b-col class="table__third-level" v-else>{{ emptyString }}</b-col>
 
-                                    <b-col class="actualDate-extraColumn__third-level" style="display: none;"
+                                    <b-col class="plannedDate-extraColumn__third-level" style="display: none;"
                                       v-if="
                                         itemStepVerbose.accomplishedDate != null &&
                                         itemStepVerbose.accomplishedDate != ''
@@ -167,7 +167,7 @@
                                     >
                                       {{ itemStepVerbose.accomplishedDate }}
                                     </b-col>
-                                    <b-col class="actualDate-extraColumn__third-level" style="display: none;" v-else>{{ emptyString }}</b-col>
+                                    <b-col class="plannedDate-extraColumn__third-level" style="display: none;" v-else>{{ emptyString }}</b-col>
                                   </b-row>
                                 </b-list-group-item>
                               </b-list-group>
@@ -245,18 +245,18 @@ $primary: #cc092f ;
 }
 
 .table__second-level {
-  margin-left: 2.8rem;
+  margin-left: 3.8rem;
 }
 
 .table__third-level {
   margin-left: 4px;
 }
 
-.actualDate-extraColumn {
+.plannedDate-extraColumn {
   margin-left: 1.3rem;
 }
 
-.actualDate-extraColumn__third-level {
+.plannedDate-extraColumn__third-level {
   margin-left: -1px;
 }
 
@@ -272,10 +272,10 @@ $primary: #cc092f ;
   .workflow__container {
     margin-bottom: 6rem !important;
   }
-  .actualDate-extraColumn {
+  .plannedDate-extraColumn {
     display: block !important;
   }
-  .actualDate-extraColumn__third-level {
+  .plannedDate-extraColumn__third-level {
     display: block !important;
   }
   .accordion {

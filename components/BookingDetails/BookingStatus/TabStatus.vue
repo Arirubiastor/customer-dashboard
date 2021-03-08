@@ -2,7 +2,7 @@
   <div>
     <div class="status__container d-inline">
       <!------- Hide card on screens smaller than md / Horizontal version  ------->
-      <b-card class="status__container text-center pt-lg-5 pb-1 pb-md-5 d-none d-md-block">
+      <b-card class="status__container text-center pt-lg-5 pb-1 pb-md-5 d-none d-lg-block">
         <div v-for="(stage, index) in workflow" :key="index" class="d-inline">
           <!-- Dotted-line left -->
           <div class="d-inline ml-1 mr-1" v-if="index != 0">
@@ -113,7 +113,7 @@
       </b-card>
 
       <!-------  Hide card on screens wider than md / Vertical version  ------->
-      <b-card no-body class="status__container text-center pt-4 pt-lg-5 d-md-none">
+      <b-card no-body class="status__container text-center pt-4 pt-lg-5 d-lg-none">
         <b-container class="bv-example-row">
           <b-row>
             <b-col class="pl-0">
@@ -162,8 +162,8 @@
             <b-col cols="8" class="pr-0 pl-0 text-left">
               <div v-for="(stage, index) in workflow" :key="index" class="workflow_text pb-3">
                 <p class="stage__title">{{ stage.stageVerbose }}</p>
-                <p v-if="stage.accomplishedDate != ''">Actual Date:<br>{{ stage.accomplishedDate }}</p>
-                <p v-else>Actual Date:<br>----</p>
+                <p v-if="stage.accomplishedDate != null">Actual Date:<br>{{ stage.accomplishedDate }}</p>
+                <p v-else>Actual Date: ----</p>
               </div>
             </b-col>
           </b-row>
