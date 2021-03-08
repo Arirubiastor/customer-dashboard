@@ -60,7 +60,7 @@ export default {
     // })
     
     const data = await response.json();
-    // console.log((JSON.parse(data.JsonBooking)));
+    console.log((JSON.parse(data.JsonBooking)));
     this.bookingData = JSON.parse(data.JsonBooking);
     // console.log('query: ' + uuidBooking)
 

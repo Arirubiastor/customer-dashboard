@@ -30,7 +30,7 @@ export default {
   },
 
   created() {
-    setTimeout(() => this.elementVisible = false, 2000)
+    setTimeout(() => this.elementVisible = false, 2100)
   },
 
 }

@@ -40,7 +40,7 @@ export default {
       `https://e7pmpg7z85.execute-api.us-west-2.amazonaws.com/prod/obtienedatosbooking?uuidBooking=${uuidBooking}&nombreCliente=${nombreCliente}`
     );
     const data = await response.json();
-    // console.log((JSON.parse(data.JsonBooking))) //Pruebas
+    console.log((JSON.parse(data.JsonBooking))) //Pruebas
     this.bookingData = JSON.parse(data.JsonBooking);
 
     // if (uuidBooking === undefined) {
