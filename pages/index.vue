@@ -4,7 +4,7 @@
       <TheHeader :bookingData="bookingData" />
       <StatusSummary :bookingData="bookingData" :workflow="bookingData.workflow" />
     </div>
-      <ErrorBookingInfo v-else />
+      <ErrorBookingInfo v-else :bookingData="bookingData" />
   </div>
 </template>
 
@@ -62,7 +62,6 @@ export default {
     const data = await response.json();
     // console.log((JSON.parse(data.JsonBooking)));
     this.bookingData = JSON.parse(data.JsonBooking);
-    this.response === response;
     // console.log('query: ' + uuidBooking)
 
     if (uuidBooking === null) {
@@ -113,7 +112,7 @@ export default {
   },
 
   asyncData({ query }) {
-    console.log('query' + query);
+    // console.log('query' + query);
   }
 }
 </script>

@@ -1,14 +1,37 @@
 <template>
 <b-container class="error-container d-flex flex-column align-items-center justify-content-center">
   <div class="text-center">
-    <h1>We couldn't find any information for this request.</h1>
-    <a href="mailto:help@exikhan.com.mx" class="email-link">Get in touch: help@exikhan.com.mx</a>
+    <div>
+      <div class="text-center mb-3">
+        <b-spinner variant="primary" label="Text Centered"></b-spinner>
+      </div>
+      <h5 v-show="elementVisible">Loading Page...</h5>
+    </div>
+    <div v-show="!elementVisible">
+      <h1>We couldn't find any information for this request.test</h1>
+      <a href="mailto:help@exikhan.com.mx" class="email-link">Get in touch: help@exikhan.com.mx</a>
+    </div>
   </div>
 </b-container>
 </template>
 
 <script>
 export default {
+  props: {
+    bookingData: {
+      type: Object,
+      required: true,
+    },
+  },
+  data() {
+    return {
+      elementVisible: true,
+    }
+  },
+
+  created() {
+    setTimeout(() => this.elementVisible = false, 2000)
+  },
 
 }
 </script>

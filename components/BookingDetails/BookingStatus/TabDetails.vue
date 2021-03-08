@@ -345,7 +345,7 @@ export default {
   },
 
   created() {
-    console.log(this.statusData);
+    // console.log(this.statusData);
   },
 };
 </script>
