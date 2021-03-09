@@ -8,7 +8,7 @@
       <h5 v-show="elementVisible">Loading Page...</h5>
     </div>
     <div v-show="!elementVisible">
-      <h1>We couldn't find any information for this request.test</h1>
+      <h1>We couldn't find any information for this request.</h1>
       <a href="mailto:help@exikhan.com.mx" class="email-link">Get in touch: help@exikhan.com.mx</a>
     </div>
   </div>
@@ -30,7 +30,7 @@ export default {
   },
 
   created() {
-    setTimeout(() => this.elementVisible = false, 4000)
+    setTimeout(() => this.elementVisible = false, 5000)
   },
 
 }
