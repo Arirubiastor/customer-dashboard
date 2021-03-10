@@ -26,7 +26,7 @@
             <b-form-text class="form__help mt-0 mb-4" id="input-live-help">{{ formHelp }}</b-form-text>
           </form>
           <!-- Tablet and Desktop -->
-          <form class="booking__form mb-5 d-md-inline-flex text-center" style="display: none;">
+          <form v-on:submit.prevent="validateBooking()" class="booking__form mb-5 d-md-inline-flex text-center" style="display: none;">
             <div class="group-input d-flex flex-column">
               <b-form-input
               class="booking-input__form d-inline border border-primary form-control"
@@ -43,7 +43,9 @@
 
               <!-- :to="`/booking-details/?uuidBooking=${this.$route.query.uuidBooking}&nombreCliente=SchryverPruebas`"
               tag="nuxt-link" -->
-              <b-button 
+              <b-button
+              role="button"
+              type="submit"
               variant="outline-primary"
               class="mt-4 mb-4 ml-md-4 mt-md-0 mb-md-4"
               size="lg"

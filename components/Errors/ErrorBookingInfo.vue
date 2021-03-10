@@ -1,11 +1,11 @@
 <template>
 <b-container class="error-container d-flex flex-column align-items-center justify-content-center">
   <div class="text-center">
-    <div>
+    <div v-show="elementVisible">
       <div class="text-center mb-3">
         <b-spinner variant="primary" label="Text Centered"></b-spinner>
       </div>
-      <h5 v-show="elementVisible">Loading Page...</h5>
+      <h5>Loading Page...</h5>
     </div>
     <div v-show="!elementVisible">
       <h1>We couldn't find any information for this request.</h1>
