@@ -116,7 +116,7 @@
       <b-card no-body class="status__container text-center pt-4 pt-lg-5 d-lg-none">
         <b-container class="bv-example-row">
           <b-row>
-            <b-col class="pl-0">
+            <b-col class="pl-0 pr-0">
               <div v-for="(stage, index) in workflow" :key="index">
                 <!-- Dotted-line top -->
                 <div v-if="index != 0">
@@ -162,7 +162,7 @@
             <b-col cols="8" class="pr-0 pl-0 text-left">
               <div v-for="(stage, index) in workflow" :key="index" class="workflow_text pb-3">
                 <p class="stage__title">{{ stage.stageVerbose }}</p>
-                <p v-if="stage.accomplishedDate != null">Actual Date:<br>{{ stage.accomplishedDate }}</p>
+                <p v-if="stage.accomplishedDate != null">Actual Date: {{ stage.accomplishedDate }}</p>
                 <p v-else>Actual Date: ----</p>
               </div>
             </b-col>
