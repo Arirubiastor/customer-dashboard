@@ -165,7 +165,7 @@ export default {
       emptyString: '---',
       formInstructions: 'To see more information about this shipment enter the last 5 digits of the booking',
       formInstructions1: 'Please input your booking number',
-      formPlaceholder: 'ej. 00123',
+      formPlaceholder: '00123',
       formHelp: 'Enter the last 5 digits of the booking number',
       form: {
         bookingValidation: '',
