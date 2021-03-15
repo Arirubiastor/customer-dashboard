@@ -1,6 +1,6 @@
 <template>
   <div>
-    <b-container class="mt-4 mt-md-5" align-v="center">
+    <b-container class="mt-3 mt-md-5" align-v="center">
       <h1 class="index__title text-center mb-0">Track &amp; Trace</h1>
       <p class="text__input mt-0 mt-md-3 p-2 text-center mb-0 mb-md-3">
         {{ formInstructions1 }}
@@ -195,7 +195,7 @@ export default {
       this.bookingLast = this.bookingData.booking.substr(this.bookingData.booking.length - 5)
       if (this.form.bookingValidation === this.bookingLast ) {
         // this.router.navigate([`/booking-details/?uuidBooking=${this.$route.query.uuidBooking}&nombreCliente=SchryverPruebas`]);
-        this.$router.push(`/booking-details/?uuidBooking=${this.$route.query.uuidBooking}&nombreCliente=SchryverPruebas`);
+        this.$router.push(`/booking-details/?uuidBooking=${this.$route.query.uuidBooking}&nombreCliente=${this.$route.query.nombreCliente}`);
       }
       else {
         // this.errorBooking = 'The booking number is not valid, please try again'

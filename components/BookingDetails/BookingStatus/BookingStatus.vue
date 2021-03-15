@@ -1,6 +1,6 @@
 <template>
   <div>
-    <b-container class="tabs__container">
+    <b-container class="tabs__container mt-4 mt-md-5">
       <b-tabs content-class="mt-1 mt-md-3" justified active-nav-item-class="font-weight-bold text-primary">
         <b-tab title="Status" active>
           <TabStatus :workflow="bookingData.workflow" />

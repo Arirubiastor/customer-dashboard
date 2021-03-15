@@ -7,7 +7,7 @@
         <b-img :src="`https://track-trace-assets.s3-us-west-2.amazonaws.com/${this.$route.query.nombreCliente}/white-logo.png`" class="brand-image__header m-2"></b-img>
       </b-navbar-brand>
       <b-nav-text class="ml-auto mr-md-4">
-        <b-navbar-text class="text-light font-weight-bold">Track &amp; Trace</b-navbar-text>
+        <b-navbar-text class="header-title text-light">Track &amp; Trace</b-navbar-text>
       </b-nav-text>
     </b-navbar>
   </div>
@@ -26,6 +26,11 @@ export default {
 
 <style lang="scss">
 .brand-image__header {
-  height: 2.3rem;
+  height: 2rem;
+}
+.header-title {
+  font-size: 18px;
+  font-weight: 500;
+  letter-spacing: 1px;
 }
 </style>
