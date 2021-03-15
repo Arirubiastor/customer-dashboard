@@ -195,7 +195,7 @@ export default {
       this.bookingLast = this.bookingData.booking.substr(this.bookingData.booking.length - 5)
       if (this.form.bookingValidation === this.bookingLast ) {
         // this.router.navigate([`/booking-details/?uuidBooking=${this.$route.query.uuidBooking}&nombreCliente=SchryverPruebas`]);
-        this.$router.push(`/booking-details/?uuidBooking=${this.$route.query.uuidBooking}&nombreCliente=SchryverPruebas`);
+        this.$router.push(`/booking-details/?uuidBooking=${this.$route.query.uuidBooking}&nombreCliente=${this.$route.query.nombreCliente}`);
       }
       else {
         // this.errorBooking = 'The booking number is not valid, please try again'
